@@ -31,8 +31,8 @@ CoordMode, Mouse, Screen
 	global leavegame5 := [286, 469, 375, 564, "\pngs\newleavegame.png", 36, 42, 35, 2]
 	
 	
-	global teleport1 := [57 , 228,2]
-	global teleport2 := [162, 373,2]
+	global teleport1 := [62 , 247,2]
+	global teleport2 := [170, 360,2]
 	global acceptclick := [961, 805,1]
 	global cancelbutton := [1061, 375,1]
 	global leavegamebutton := [291, 484,2]
