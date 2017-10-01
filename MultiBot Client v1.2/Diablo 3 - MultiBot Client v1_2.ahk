@@ -41,7 +41,7 @@ Thread, Interrupt, -1
 	global leaveparty2 := [701, 567, 1216, 726, "\pngs\newleaveparty2.png", 410, 23 , 60,1] ; tbm funciona para inactivity
 	
 	
-	global inactivity := [743, 388 1200, 550, "\pngs\newinactivity.png", 401,43 , "*50 *TransBlack",1]
+	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
 	

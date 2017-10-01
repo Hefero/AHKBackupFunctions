@@ -22,7 +22,7 @@ CoordMode, Mouse, Screen
 	global acceptgr := [780, 793, 1156, 864, "\pngs\newacceptgr.png", 70, 43 , 60,1]
 	global leaveparty := [1618, 878, 1672, 925, "\pngs\newleaveparty.png", 16, 32 , 60,3]
 	global leaveparty2 := [701, 567, 1216, 726, "\pngs\newleaveparty2.png", 410, 23 , 60,1] ; tbm funciona para inactivity
-	global inactivity := global inactivity := [743, 388 1200, 550, "\pngs\newinactivity.png", 401,43 , "*50 *TransBlack",1]
+	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
 	global leavegame1 := [286, 254, 375, 355, "\pngs\newleavegame.png", 36, 42, 35, 2]
 	global leavegame2 := [286, 314, 375, 405, "\pngs\newleavegame.png", 36, 42, 35, 2]
