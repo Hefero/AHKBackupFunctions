@@ -167,6 +167,10 @@ CoordMode, Mouse, Screen
 		if (exited = 0 and receivedfailed = 0){
 			failed1 := 1
 			receivedfailed := 1
+			SendInput, {F4 down}
+ 			Sleep 50
+			SendInput, {F4 up}
+ 			Sleep 1000
 			WriteLog("go to menu received: pause and leave")
 			exited := 1
 			chatstep := "blank"
@@ -745,6 +749,10 @@ CoordMode, Mouse, Screen
 	{	   
 	   if (failed1 = 0 and receivedfailed = 0 and exited = 0){
 	    LogLock := 1
+		SendInput, {F4 down}
+ 		Sleep 50
+ 		SendInput, {F4 up}
+ 		Sleep 1000
 		WriteLog("next rift in different: f6 logout")
 		;BlockInput, on
 		Gosub, dopause
@@ -885,6 +893,10 @@ CoordMode, Mouse, Screen
 				SendEvent, {Click down}
 				Sleep 50
 				SendEvent, {Click up}
+				Sleep 50				
+ 				SendInput, {F4 down}
+ 				Sleep 50
+ 				SendInput, {F4 up}
 				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
@@ -896,6 +908,11 @@ CoordMode, Mouse, Screen
 		}
 		if (doleave = 1){ ;couldnt leave			
 			Gosub, DoUnBlockInput
+			Sleep 50				
+ 			SendInput, {F4 down}
+ 			Sleep 50
+ 			SendInput, {F4 up}
+			Sleep 50
 			Gosub, dounpause
 		}
 	return

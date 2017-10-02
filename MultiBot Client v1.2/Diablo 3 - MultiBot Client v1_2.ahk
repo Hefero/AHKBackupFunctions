@@ -204,8 +204,12 @@ Thread, Interrupt, -1
 		IfInString, controlText, failure
 		{	
 			if (receivedfailed = 0 and exited = 0){
-				receivedfailed := 1		
+				receivedfailed := 1						
 				chatstep := "blank"		
+				SendInput, {F4 down}
+ 				Sleep 50
+ 				SendInput, {F4 up}
+ 				Sleep 1000
 				Gosub, dopause			
 				WinActivate, Diablo III
 				failed1 := 1				
@@ -646,6 +650,10 @@ Thread, Interrupt, -1
 		if (failed1 = 0 and receivedfailed = 0 and exited = 0){
 			LogLock := 1
 			chatstep := "blank"				
+			SendInput, {F4 down}
+ 			Sleep 50
+ 			SendInput, {F4 up}
+ 			Sleep 1000
 			;BlockInput, on	
 			Gosub, dopause
 			WriteLog("next rift in different: f6 logout")			
@@ -822,9 +830,13 @@ Thread, Interrupt, -1
 				Sleep 50				
 				SendEvent, {Click up}
 				Sleep 50
+				SendInput, {F4 down}
+ 				Sleep 50
+ 				SendInput, {F4 up}
+				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
-				doleave := 1
+				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Break
 				doleave := 0
@@ -833,6 +845,11 @@ Thread, Interrupt, -1
 		}
 	if (doleave = 1){ ;didnt leave correctly
 		Gosub, DoUnBlockInput
+		Sleep 50
+		SendInput, {F4 down}
+ 		Sleep 50
+ 		SendInput, {F4 up}
+ 		Sleep 1000
 		Gosub, dounpause
 	}
 	return
