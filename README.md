@@ -4,7 +4,8 @@ AHk script for handling RosBot party on greater rifts
 
 Client Needs to be party leader
 
-Server needs to run as admin
+Server needs to run as admin and run after rosbot, then you select rosb process, logs.txt
+and choose a port number, then click update
 
 Both need OpenGreaterRift to yes, but Server will determine the level,
 the Client only accepts
