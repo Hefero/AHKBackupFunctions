@@ -81,7 +81,7 @@ CoordMode, Mouse, Screen
 	Gui Add, Text, x59 y189 w39 h17 +Center, Browse
 	Gui Add, Text, x41 y91 w80 h20 +Center, Port
 	Gui Add, Button, gdochoosefile x136 y186 w54 h19 , Choose
-	Gui Add, ListView, gprocesslistview x553 y119 w120 h160, Name
+	Gui Add, ListView, gprocesslistview AltSubmit x553 y119 w120 h160, Name
 	for process in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process")
 	{
 		if (process.Name != "chrome.exe" and process.Name != "svchost.exe") {
@@ -109,7 +109,7 @@ CoordMode, Mouse, Screen
 	return
     
 	processlistview:
-	if A_GuiEvent = DoubleClick
+	if A_GuiEvent = Normal
 	{
 		LV_GetText(InitialWin, A_EventInfo)
 		GuiControl, Text, rosbproctext,RosB Process: %InitialWin%
@@ -888,6 +888,7 @@ CoordMode, Mouse, Screen
 				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
+				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Break
 			}

@@ -84,3 +84,66 @@
 2017-10-02(10h07m56sec) Server listening p: 0
 2017-10-02(10h08m14sec) Start Script Executing p: 0
 2017-10-02(10h08m14sec) Server listening p: 0
+2017-10-02(11h08m42sec) Start Script Executing p: 0
+2017-10-02(11h08m42sec) Server listening p: 0
+2017-10-02(11h09m07sec) Start Script Executing p: 0
+2017-10-02(11h09m07sec) Server listening p: 0
+2017-10-02(11h10m01sec) connection accepted p: 0
+2017-10-02(11h10m01sec) message received: testconnection p: 0
+2017-10-02(11h10m15sec) message received: beginsequence p: 0
+2017-10-02(11h10m15sec) received beginsequence: starting p: 0
+2017-10-02(11h10m15sec) starting rosb p: 0
+2017-10-02(11h10m16sec) gosub init p: 0
+2017-10-02(11h10m16sec) running init: starting timers p: 0
+2017-10-02(11h10m18sec) F6 from vendorloop p: 1
+2017-10-02(11h10m21sec) vendor loop done detected: send iamready p: 1
+2017-10-02(11h10m21sec) SendText: iamready p: 1
+2017-10-02(11h10m21sec) sent: iamready status: 9 p: 1
+2017-10-02(11h10m27sec) accept found: trying to click cancel p: 1
+2017-10-02(11h10m27sec) accept found: clicked cancel p: 1
+2017-10-02(11h10m28sec) message received: start p: 1
+2017-10-02(11h10m28sec) start received p: 1
+2017-10-02(11h10m28sec) F6 start received:starting p: 0
+2017-10-02(11h10m29sec) riftacceptbutton imagesearch p: 0
+2017-10-02(11h10m38sec) message received: riftacceptbutton p: 0
+2017-10-02(11h10m38sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-02(11h10m41sec) message received: go to menu p: 0
+2017-10-02(11h10m41sec) go to menu received: pause and leave p: 0
+2017-10-02(11h10m41sec) F6 pausing gosub p: 1
+2017-10-02(11h10m41sec) logout attempt p: 1
+2017-10-02(11h10m41sec) LEave game found: clicking leave game try:1 p: 1
+2017-10-02(11h10m43sec) blocking p: 1
+2017-10-02(11h10m43sec) LEave game found: clicking leave game and blocking input p: 1
+2017-10-02(11h10m43sec) unblocking p: 1
+2017-10-02(11h10m43sec) F6 pausing gosub p: 0
+2017-10-02(11h10m43sec) focus diablo p: 0
+2017-10-02(11h11m01sec) imagereader menu disabled p: 0
+2017-10-02(11h11m01sec) SendText: imonmenu p: 0
+2017-10-02(11h11m01sec) sent: imonmenu status: 9 p: 0
+2017-10-02(11h11m01sec) running init: starting timers p: 0
+2017-10-02(11h11m27sec) F6 from vendorloop p: 1
+2017-10-02(11h11m30sec) vendor loop done detected: send iamready p: 1
+2017-10-02(11h11m30sec) SendText: iamready p: 1
+2017-10-02(11h11m30sec) sent: iamready status: 9 p: 1
+2017-10-02(11h11m43sec) accept found: trying to click cancel p: 1
+2017-10-02(11h11m43sec) accept found: clicked cancel p: 1
+2017-10-02(11h11m43sec) message received: start p: 1
+2017-10-02(11h11m43sec) start received p: 1
+2017-10-02(11h11m43sec) F6 start received:starting p: 0
+2017-10-02(11h11m44sec) riftacceptbutton imagesearch p: 0
+2017-10-02(11h11m54sec) message received: riftacceptbutton p: 0
+2017-10-02(11h11m54sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-02(11h17m15sec) next rift in different: f6 logout p: 0
+2017-10-02(11h17m15sec) F6 pausing gosub p: 1
+2017-10-02(11h17m15sec) SendText: failure p: 1
+2017-10-02(11h17m15sec) sent: failure status: 8 p: 1
+2017-10-02(11h17m15sec) logout attempt p: 1
+2017-10-02(11h17m15sec) LEave game found: clicking leave game try:1 p: 1
+2017-10-02(11h17m17sec) blocking p: 1
+2017-10-02(11h17m17sec) LEave game found: clicking leave game and blocking input p: 1
+2017-10-02(11h17m17sec) unblocking p: 1
+2017-10-02(11h17m17sec) F6 pausing gosub p: 0
+2017-10-02(11h17m27sec) imagereader menu disabled p: 0
+2017-10-02(11h17m27sec) SendText: imonmenu p: 0
+2017-10-02(11h17m27sec) sent: imonmenu status: 9 p: 0
+2017-10-02(11h17m27sec) running init: starting timers p: 0

@@ -824,6 +824,7 @@ Thread, Interrupt, -1
 				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
+				doleave := 1
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Break
 				doleave := 0
