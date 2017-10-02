@@ -223,6 +223,7 @@ Thread, Interrupt, -1
 		
 		IfInString, controlText, imonmenu
 		{	
+			Sleep 5000
 			otheronmenu := 1
 			WriteLog("imonmenu received")
 			if (imonmenu = 1){		
