@@ -43,6 +43,8 @@ Thread, Interrupt, -1
 	
 	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	
+	global risenecro := [1422, 971, 1664, 1027, "\pngs\risenecro.png", 171,18 , "*30 *TransBlack",3]
+	
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
 	
 	
@@ -75,6 +77,7 @@ Thread, Interrupt, -1
 	ConvertCoordinates(leavegame)
 	ConvertCoordinates(leaveparty)
 	ConvertCoordinates(leaveparty2)
+	ConvertCoordinates(risenecro)
 	
 	
 	WriteLog("Script Execution started")
@@ -502,6 +505,23 @@ Thread, Interrupt, -1
 			Sleep 500
 			c1 := disconnectedbutton[1]
 			c2 := disconnectedbutton[2]
+			Click %c1% , %c2%
+			Gosub, DoBlockInput
+		}
+	}
+	
+	;risenecro - ok - 
+	if (blockedinput = 1 and failed1 = 1){
+		pathpng := A_ScriptDir . risenecro[5]
+		scale :=  "*w" . risenecro[6] . " *h" . risenecro[7]
+		options := risenecro[8]
+		ImageSearch , risenecroX, risenecroY, risenecro[1], risenecro[2], risenecro[3], risenecro[4], %options% %scale% %pathpng%
+		if(risenecroX > 0){
+			WriteLog("imagereader risenecro")
+			Gosub, DoUnBlockInput
+			Sleep 500
+			c1 := risenecroX
+			c2 := risenecroY
 			Click %c1% , %c2%
 			Gosub, DoBlockInput
 		}
