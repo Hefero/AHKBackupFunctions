@@ -204,10 +204,6 @@ Thread, Interrupt, -1
 		IfInString, controlText, failure
 		{	
 			if (receivedfailed = 0 and exited = 0){
-				SendInput, {F4 down}
-				Sleep 50
-				SendInput, {F4 up}
-				Sleep 1000
 				receivedfailed := 1		
 				chatstep := "blank"		
 				Gosub, dopause			
@@ -648,10 +644,6 @@ Thread, Interrupt, -1
 	{
 		
 		if (failed1 = 0 and receivedfailed = 0 and exited = 0){
-			SendInput, {F4 down}
-			Sleep 50
-			SendInput, {F4 up}
-			Sleep 1000
 			LogLock := 1
 			chatstep := "blank"				
 			;BlockInput, on	
@@ -830,9 +822,6 @@ Thread, Interrupt, -1
 				Sleep 50				
 				SendEvent, {Click up}
 				Sleep 50
-				SendInput, {F4 down}
-				Sleep 50
-				SendInput, {F4 up}
 				Gosub, DoBlockInput
 				exited := 1
 				WriteLog("LEave game found: clicking leave game and blocking input")
@@ -842,10 +831,7 @@ Thread, Interrupt, -1
 			Sleep 200
 		}
 	if (doleave = 1){ ;didnt leave correctly
-		SendInput, {F4 down}
-		Sleep 50
-		SendInput, {F4 up}
-		Sleep 1000
+		Gosub, DoUnBlockInput
 		Gosub, dounpause
 	}
 	return

@@ -165,10 +165,6 @@ CoordMode, Mouse, Screen
 	   {
 	    
 		if (exited = 0 and receivedfailed = 0){
-			SendInput, {F4 down}
-			Sleep 50
-			SendInput, {F4 up}
-			Sleep 1000
 			failed1 := 1
 			receivedfailed := 1
 			WriteLog("go to menu received: pause and leave")
@@ -748,10 +744,6 @@ CoordMode, Mouse, Screen
 	IfInString, chatstep, next rift in different
 	{	   
 	   if (failed1 = 0 and receivedfailed = 0 and exited = 0){
-	    SendInput, {F4 down}
-		Sleep 50
-		SendInput, {F4 up}
-		Sleep 1000
 	    LogLock := 1
 		WriteLog("next rift in different: f6 logout")
 		;BlockInput, on
@@ -894,9 +886,6 @@ CoordMode, Mouse, Screen
 				Sleep 50
 				SendEvent, {Click up}
 				Sleep 50
-				SendInput, {F4 down}
-				Sleep 50
-				SendInput, {F4 up}
 				Gosub, DoBlockInput
 				exited := 1
 				WriteLog("LEave game found: clicking leave game and blocking input")
@@ -904,11 +893,8 @@ CoordMode, Mouse, Screen
 			}
 			Sleep 200
 		}
-		if (doleave = 1){ ;couldnt leave
-			SendInput, {F4 down}
-			Sleep 50
-			SendInput, {F4 up}
-			Sleep 1000
+		if (doleave = 1){ ;couldnt leave			
+			Gosub, DoUnBlockInput
 			Gosub, dounpause
 		}
 	return
