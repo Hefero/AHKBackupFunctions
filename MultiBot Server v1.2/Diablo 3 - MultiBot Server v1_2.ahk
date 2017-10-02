@@ -606,7 +606,9 @@ CoordMode, Mouse, Screen
 			WriteLog("imagereader disconnected or timedout")
 			Gosub, DoUnBlockInput
 			Sleep 500
-			Click %DiscX% , %DiscY%
+			c1 := disconnectedbutton[1]
+			c2 := disconnectedbutton[2]
+			Click %c1% , %c2%
 			Gosub, DoBlockInput
 		}
 	}
