@@ -72,18 +72,27 @@ CoordMode, Mouse, Screen
 	myServer.listen()
 	WriteLog("Server listening")
 	
-	Gui, Add, Text, x17 y114 w80 h20 +Center, Log File
-	Gui, Add, GroupBox, x7 y4 w570 h170 , Settings
-	Gui, Add, Edit, x113 y34 w107 h18 vserverport , %serverport%
-	Gui, Add, Edit, x112 y115 w305 h18 vlogpath , %logpath%
-	Gui, Add, Button, x387 y234 w110 h40 gdoexit, Hide
-	Gui, Add, Button, x97 y234 w110 h40 gdostart, Change Value
-	Gui, Add, Text, x444 y117 w39 h17 +Center, Browse
-	Gui, Add, Text, x17 y34 w80 h20 +Center, Port
-	Gui, Add, Button, x501 y114 w54 h19 gdochoosefile , Choose
-	; Generated using SmartGUI Creator for SciTE
-	Gui, Show, w604 h320, MultiBot Server
-	return
+	Gui Add, Text, x41 y154 w80 h20 +Center, Log File
+	Gui Add, GroupBox, x18 y38 w728 h276 , Settings
+	Gui Add, Edit, vserverport x139 y91 w107 h18 , %serverport%
+	Gui Add, Edit, vlogpath x136 y154 w305 h18 , %logpath%
+	Gui Add, Button, gdoexit x521 y343 w110 h40, Hide
+	Gui Add, Button, gdostart x186 y342 w110 h40, Update
+	Gui Add, Text, x59 y189 w39 h17 +Center, Browse
+	Gui Add, Text, x41 y91 w80 h20 +Center, Port
+	Gui Add, Button, gdochoosefile x136 y186 w54 h19 , Choose
+	Gui Add, ListView, gprocesslistview x553 y119 w120 h160, Name
+	for process in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process")
+	{
+		if (process.Name != "chrome.exe" and process.Name != "svchost.exe") {
+			LV_Add("", process.Name)
+		}
+		
+	}
+	Gui Add, Text, vrosbproctext x555 y89 w120 h23 +0x200, RosB Process
+	Gui Show, w798 h402, Window
+	Return
+
 
 	dochoosefile:
 		FileSelectFile, logfileselected
@@ -94,16 +103,29 @@ CoordMode, Mouse, Screen
 		Gui, destroy
 	return
     
+	processlistview:
+	if A_GuiEvent = DoubleClick
+	{
+		LV_GetText(InitialWin, A_EventInfo)
+		GuiControl, Text, rosbproctext,RosB Process: %InitialWin%
+	}
+	return
+	
 	dostart:
 		Gui, submit, NoHide
 		Iniread, oldserverport, variables.ini, Settings, ServerPort
+		Iniread, oldinitialwin, variables.ini, Settings, RosWintitle
 		Iniwrite, %serverport%, variables.ini, Settings, ServerPort
-		Iniwrite, %logpath%, variables.ini, Settings, LogPath		
-		if(oldserverport != serverport){
+		Iniwrite, %logpath%, variables.ini, Settings, LogPath	
+		Iniwrite, %InitialWin%, variables.ini, Settings, RosWintitle			
+		if(oldserverport != serverport or oldinitialwin != InitialWin ){
 			reload
 		}
 	return
     
+	F1::
+		WinActivate,
+	return
 
 	OnTCPAccept(this)
 	{
@@ -179,8 +201,7 @@ CoordMode, Mouse, Screen
 		IfInString, controlText, beginsequence
 		{	
 			WriteLog("received beginsequence: starting")
-			WinGetTitle, InitialWin, A
-			global RosWintitle := InitialWin
+			Gui, destroy			
 			WriteLog("starting rosb")
 			Gosub, StartRos
 			WriteLog("gosub init")
@@ -786,27 +807,24 @@ CoordMode, Mouse, Screen
 		
 	
 	StartRos:
-		i := 0
-		while(i < 50){
-			WinActivate, %RosWintitle%
-			WinGetTitle, ActiveWin, A
+		Iniread, RosWintitle, variables.ini, Settings, RosWintitle
+		Loop, 50{
+			WinActivate, ahk_exe %RosWintitle%
+			WinGetTitle, ActiveWin, ahk_exe
 			if (ActiveWin = RosWintitle){
 				SendInput , {Space}				
 				Break
 			}
-			i++
 		}
 	return
 	
 	FocusDiablo:
-		i := 0
-		while(i < 50){
+		Loop, 50{
 			WinActivate, Diablo III			
 			WinGetTitle, ActiveWindow, A
 			if (ActiveWindow = "Diablo III"){	
 				Break
 			}
-			i++
 		}
 	return
 	
