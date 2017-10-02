@@ -226,7 +226,7 @@ Thread, Interrupt, -1
 			otheronmenu := 1
 			WriteLog("imonmenu received")
 			if (imonmenu = 1){		
-				Sleep 5000
+				Sleep 15000
 				WriteLog("imonmenu received menu start enabled: block off")			
 				Gosub, DoUnBlockInput	
 				;StringSend := "startros"
@@ -839,7 +839,6 @@ Thread, Interrupt, -1
 				exited := 1
 				doleave := 0				
 				WriteLog("LEave game found: clicking leave game and blocking input")
-				Sleep 5000
 				Break				
 			}
 			Sleep 200
