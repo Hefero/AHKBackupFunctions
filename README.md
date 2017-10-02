@@ -13,6 +13,9 @@ Put ramaladnis on last tab, cuz they bug when tab is full cuz they dont stack
 
 Turn off Firewall or add the Port u are using to exceptions on Firewall
 
+LogPath is the path to logs.txt from rosbot documents
+
+
 Tested resolutions:
 1920x1080
 1680x1050
