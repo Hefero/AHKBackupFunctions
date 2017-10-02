@@ -847,34 +847,36 @@ Thread, Interrupt, -1
 			if(LeaveGameX > 0) {
 				c1 := leavegamebutton[1]
 				c2 := leavegamebutton[2]
-				
 				SendInput, {F4 down}
  				Sleep 50
  				SendInput, {F4 up}
+				Sleep 50			
 				Gosub, DoUnBlockInput
+				Sleep 50
 				MouseMove %c1% , %c2%
 				Sleep 50
 				SendEvent, {Click down}
-				Sleep 50				
-				SendEvent, {Click up}	
+				Sleep 50
+				SendEvent, {Click up}
 				Sleep 50
 				Gosub, DoBlockInput
+				Sleep 9000
 				exited := 1
-				doleave := 0				
+				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input")
-				Break				
+				Break
 			}
 			Sleep 200
 		}
-	if (doleave = 1){ ;didnt leave correctly
-		Gosub, DoUnBlockInput
-		Sleep 50
-		SendInput, {F4 down}
- 		Sleep 50
- 		SendInput, {F4 up}
- 		Sleep 1000
-		Gosub, dounpause
-	}
+		if (doleave = 1){ ;couldnt leave			
+			Gosub, DoUnBlockInput
+			Sleep 50				
+ 			SendInput, {F4 down}
+ 			Sleep 50
+ 			SendInput, {F4 up}
+			Sleep 50
+			Gosub, dounpause
+		}
 	return
 	
 	CancelGRift:
@@ -1009,16 +1011,13 @@ Thread, Interrupt, -1
 		blockedinput := 1
 		WriteLog("blocking")
 		BlockInput, on
-		Sleep 50
 	 }
 	 return
 	 
 	 DoUnBlockInput:
 	 if(blockedinput = 1){
 		blockedinput := 0
-		Sleep 50
 		BlockInput,off
-		Sleep 50
 		WriteLog("unblocking")
 	 }	
 	 return
