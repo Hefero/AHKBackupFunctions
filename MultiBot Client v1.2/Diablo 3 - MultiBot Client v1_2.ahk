@@ -826,15 +826,16 @@ Thread, Interrupt, -1
 			if(LeaveGameX > 0) {
 				c1 := leavegamebutton[1]
 				c2 := leavegamebutton[2]
-				MouseMove %c1% , %c2%
-				SendEvent, {Click down}
-				Sleep 50				
-				SendEvent, {Click up}
-				Sleep 50
+				
 				SendInput, {F4 down}
  				Sleep 50
  				SendInput, {F4 up}
 				Sleep 50
+				MouseMove %c1% , %c2%
+				Sleep 50
+				SendEvent, {Click down}
+				Sleep 50				
+				SendEvent, {Click up}				
 				Gosub, DoBlockInput
 				exited := 1
 				doleave := 0				
@@ -985,7 +986,6 @@ Thread, Interrupt, -1
 	 if(blockedinput = 0){
 		blockedinput := 1
 		WriteLog("blocking")
-		Sleep 50
 		BlockInput, on
 		Sleep 50
 	 }

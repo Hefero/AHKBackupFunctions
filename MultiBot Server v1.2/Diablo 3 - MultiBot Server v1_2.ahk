@@ -888,17 +888,16 @@ CoordMode, Mouse, Screen
 			ImageSearch , LeaveGameX, LeaveGameY, leavegame[1], leavegame[2], leavegame[3], leavegame[4],  %options% %scale% %pathpng%
 			if(LeaveGameX > 0) {
 				c1 := leavegamebutton[1]
-				c2 := leavegamebutton[2]				
+				c2 := leavegamebutton[2]
+				SendInput, {F4 down}
+ 				Sleep 50
+ 				SendInput, {F4 up}
+				Sleep 50				
 				MouseMove %c1% , %c2%
 				Sleep 50
 				SendEvent, {Click down}
 				Sleep 50
 				SendEvent, {Click up}
-				Sleep 50				
- 				SendInput, {F4 down}
- 				Sleep 50
- 				SendInput, {F4 up}
-				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
 				doleave := 0
