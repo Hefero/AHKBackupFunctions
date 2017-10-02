@@ -489,6 +489,7 @@ CoordMode, Mouse, Screen
 			scale :=  "*w" . menu_start_disabled[6] . " *h" . menu_start_disabled[7]
 			ImageSearch , MenuDisabledX, MenuDisabledY, menu_start_disabled[1], menu_start_disabled[2], menu_start_disabled[3], menu_start_disabled[4], *23 %scale% %pathpng%
 			if(MenuDisabledX > 0){
+				Sleep 5000
 				Gosub, DoUnBlockInput
 				Sleep 1000
 				if (paused = 1){			
