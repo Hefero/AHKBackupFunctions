@@ -85,7 +85,12 @@ CoordMode, Mouse, Screen
 	for process in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process")
 	{
 		if (process.Name != "chrome.exe" and process.Name != "svchost.exe") {
-			LV_Add("", process.Name)
+			processname1 := process.Name
+			WinGetTitle, ProcessTitle, ahk_exe %processname1%	
+			StringLen, length, ProcessTitle
+			if (length > 2){
+				LV_Add("", ProcessTitle)
+			}
 		}
 		
 	}
@@ -809,9 +814,11 @@ CoordMode, Mouse, Screen
 	StartRos:
 		Iniread, RosWintitle, variables.ini, Settings, RosWintitle
 		Loop, 50{
-			WinActivate, ahk_exe %RosWintitle%
-			WinGetTitle, ActiveWin, ahk_exe
+			WinActivate, %RosWintitle%
+			Sleep 500
+			WinGetTitle, ActiveWin, A
 			if (ActiveWin = RosWintitle){
+				Sleep 500
 				SendInput , {Space}				
 				Break
 			}
