@@ -223,10 +223,10 @@ Thread, Interrupt, -1
 		
 		IfInString, controlText, imonmenu
 		{				
+			Sleep 15000
 			otheronmenu := 1
 			WriteLog("imonmenu received")
-			if (imonmenu = 1){		
-				Sleep 15000
+			if (imonmenu = 1){						
 				WriteLog("imonmenu received menu start enabled: block off")			
 				Gosub, DoUnBlockInput	
 				;StringSend := "startros"
