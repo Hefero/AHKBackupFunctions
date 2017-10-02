@@ -461,7 +461,7 @@ Thread, Interrupt, -1
 	
 	;;cancel omni
 	
-	if (paused = 1 or accept = 1){
+	if (paused = 1 or accept = 1 and blockedinput = 0){
 		pathpng := A_ScriptDir . cancelgrift[5]
 		scale :=  "*w" . cancelgrift[6] . " *h" . cancelgrift[7]
 		options := cancelgrift[8]
@@ -838,6 +838,7 @@ Thread, Interrupt, -1
 				exited := 1
 				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input")
+				Sleep 5000
 				Break
 				doleave := 0
 			}

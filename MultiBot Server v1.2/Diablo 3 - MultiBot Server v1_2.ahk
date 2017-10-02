@@ -902,6 +902,7 @@ CoordMode, Mouse, Screen
 				exited := 1
 				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input")
+				Sleep 5000
 				Break
 			}
 			Sleep 200
