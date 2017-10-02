@@ -2,18 +2,21 @@
 AHk script for handling RosBot party on greater rifts
 (for now only works with 2 bots)
 
-Client Needs to be party leader
+1st, Opem the Server:
+Server needs to run as admin and run after rosbot, then you select rosb process, logs.txt
+and choose a port number, then click update
 
-Server needs to run as admin
+2nd, run the Client:
+Client Needs to be party leader and then connect to Server IP and Port, then 
+just start RosBot
+LogPath is the path to logs.txt from rosbot documents
 
 Both need OpenGreaterRift to yes, but Server will determine the level,
 the Client only accepts
 
 Put ramaladnis on last tab, cuz they bug when tab is full cuz they dont stack
 
-Turn off Firewall or add the Port u are using to exceptions on Firewall
-
-LogPath is the path to logs.txt from rosbot documents
+Turn off Firewall or add the Port u are using to exceptions on Firewall if they cant connect
 
 
 Tested resolutions:
