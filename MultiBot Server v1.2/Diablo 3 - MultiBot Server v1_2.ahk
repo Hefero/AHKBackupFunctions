@@ -17,18 +17,13 @@ CoordMode, Mouse, Screen
 	global riftopen := [287, 190, 457, 386, "\pngs\rift-open.png", 93, 118 , 65,2] 
 	global cancelgrift := [1055, 152, 1209, 265, "\pngs\supercancel.png", 122, 84 , "*50 *TransBlack",1] 
 	global menu_start_disabled := [223, 471, 414, 560, "\pngs\menu_disabled_side2_small.png", 32, 59 , 30,2] 
-	global leavegame := [81, 454, 405, 514, "\pngs\newleavegame.png", 38, 42, 50,2] ; tbm funciona para logoutonmenu
+	global leavegame := [1024, 955, 1092, 1000, "\pngs\esc_return.png", 45, 26, "*30 *TransBlack", 1] ; tbm funciona para logoutonmenu
 	global logoutonmenu :=  [81, 454, 405, 514, "\pngs\newleavegame.png", 38, 42, 50,2] 
 	global acceptgr := [780, 793, 1156, 864, "\pngs\newacceptgr.png", 70, 43 , 60,1]
 	global leaveparty := [1618, 878, 1672, 925, "\pngs\newleaveparty.png", 16, 32 , 60,3]
 	global leaveparty2 := [701, 567, 1216, 726, "\pngs\newleaveparty2.png", 410, 23 , 60,1] ; tbm funciona para inactivity
 	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
-	global leavegame1 := [286, 254, 375, 355, "\pngs\newleavegame.png", 36, 42, 35, 2]
-	global leavegame2 := [286, 314, 375, 405, "\pngs\newleavegame.png", 36, 42, 35, 2]
-	global leavegame3 := [286, 368, 375, 454, "\pngs\newleavegame.png", 36, 42, 35, 2]
-	global leavegame4 := [286, 424, 375, 510, "\pngs\newleavegame.png", 36, 42, 35, 2]
-	global leavegame5 := [286, 469, 375, 564, "\pngs\newleavegame.png", 36, 42, 35, 2]
 	
 	
 	global teleport1 := [62 , 247,2]
@@ -60,11 +55,6 @@ CoordMode, Mouse, Screen
 	ConvertCoordinates(inactivity)
 	ConvertCoordinates(acceptgr)
 	ConvertCoordinates(leavegame)
-	ConvertCoordinates(leavegame1)
-	ConvertCoordinates(leavegame2)
-	ConvertCoordinates(leavegame3)
-	ConvertCoordinates(leavegame4)
-	ConvertCoordinates(leavegame5)
 	ConvertCoordinates(leaveparty)
 	ConvertCoordinates(leaveparty2)
 	
@@ -861,19 +851,16 @@ CoordMode, Mouse, Screen
 	LeaveGame:
 		doleave := 1
 		MouseMove, 0, 0
-		Loop, 16 {
+		Loop, 30 {
 		    WriteLog("LEave game found: clicking leave game try:" a_index)
 			Gosub, FocusDiablo
 			SendInput, {Esc}
-			Sleep 1000
-			pathpng := A_ScriptDir . leavegame1[5]
-			scale :=  "*w" . leavegame1[6] . " *h" . leavegame1[7]
-			ImageSearch , LeaveGame1X, LeaveGame1Y, leavegame1[1], leavegame1[2], leavegame1[3], leavegame1[4], *40 *TransBlack %scale% %pathpng%
-			ImageSearch , LeaveGame2X, LeaveGame2Y, leavegame2[1], leavegame2[2], leavegame2[3], leavegame2[4], *40 *TransBlack %scale% %pathpng%
-			ImageSearch , LeaveGame3X, LeaveGame3Y, leavegame3[1], leavegame3[2], leavegame3[3], leavegame3[4], *40 *TransBlack %scale% %pathpng%
-			ImageSearch , LeaveGame4X, LeaveGame4Y, leavegame4[1], leavegame4[2], leavegame4[3], leavegame4[4], *40 *TransBlack %scale% %pathpng%
-			ImageSearch , LeaveGame5X, LeaveGame5Y, leavegame5[1], leavegame5[2], leavegame5[3], leavegame5[4], *40 *TransBlack %scale% %pathpng%
-			if(LeaveGame1X > 0 and LeaveGame2X > 0 and LeaveGame3X > 0 and LeaveGame4X > 0 and LeaveGame5X > 0 ){
+			Sleep 1300
+			pathpng := A_ScriptDir . leavegame[5]
+			scale :=  "*w" . leavegame[6] . " *h" . leavegame[7]
+			options := leavegame[8]
+			ImageSearch , LeaveGameX, LeaveGameY, leavegame[1], leavegame[2], leavegame[3], leavegame[4],  %options% %scale% %pathpng%
+			if(LeaveGameX > 0) {
 				c1 := leavegamebutton[1]
 				c2 := leavegamebutton[2]				
 				MouseMove %c1% , %c2%
