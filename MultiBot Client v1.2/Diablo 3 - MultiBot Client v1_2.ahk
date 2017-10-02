@@ -222,11 +222,11 @@ Thread, Interrupt, -1
 		}
 		
 		IfInString, controlText, imonmenu
-		{	
-			Sleep 5000
+		{				
 			otheronmenu := 1
 			WriteLog("imonmenu received")
 			if (imonmenu = 1){		
+				Sleep 5000
 				WriteLog("imonmenu received menu start enabled: block off")			
 				Gosub, DoUnBlockInput	
 				;StringSend := "startros"
@@ -837,11 +837,10 @@ Thread, Interrupt, -1
 				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
-				doleave := 0
+				doleave := 0				
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Sleep 5000
-				Break
-				doleave := 0
+				Break				
 			}
 			Sleep 200
 		}
