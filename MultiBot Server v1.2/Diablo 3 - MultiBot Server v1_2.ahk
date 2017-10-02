@@ -167,6 +167,7 @@ CoordMode, Mouse, Screen
 	   {
 	    
 		if (exited = 0 and receivedfailed = 0){
+			gosub, DoBlockInput
 			failed1 := 1
 			receivedfailed := 1
 			SendInput, {F4 down}
@@ -767,21 +768,22 @@ CoordMode, Mouse, Screen
 	IfInString, chatstep, next rift in different
 	{	   
 	   if (failed1 = 0 and receivedfailed = 0 and exited = 0){
-	    LogLock := 1
-		SendInput, {F4 down}
- 		Sleep 50
- 		SendInput, {F4 up}
- 		Sleep 1000
-		WriteLog("next rift in different: f6 logout")
-		;BlockInput, on
-		Gosub, dopause
-		failed1 := 1
-		failed2++
-		chatstep := "blank"
-		StringSend := "failure"	
-		Gosub, SenderText
-		WriteLog("logout attempt")
-		Gosub, LeaveGame
+			gosub, DoBlockInput
+			LogLock := 1
+			SendInput, {F4 down}
+			Sleep 50
+			SendInput, {F4 up}
+			Sleep 1000
+			WriteLog("next rift in different: f6 logout")
+			;BlockInput, on
+			Gosub, dopause
+			failed1 := 1
+			failed2++
+			chatstep := "blank"
+			StringSend := "failure"	
+			Gosub, SenderText
+			WriteLog("logout attempt")
+			Gosub, LeaveGame
 	   }
 	}
 
@@ -913,12 +915,15 @@ CoordMode, Mouse, Screen
 				SendInput, {F4 down}
  				Sleep 50
  				SendInput, {F4 up}
-				Sleep 50				
+				Sleep 50			
+				Gosub, DoUnBlockInput
+				Sleep 50
 				MouseMove %c1% , %c2%
 				Sleep 50
 				SendEvent, {Click down}
 				Sleep 50
 				SendEvent, {Click up}
+				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
 				doleave := 0

@@ -207,6 +207,7 @@ Thread, Interrupt, -1
 		IfInString, controlText, failure
 		{	
 			if (receivedfailed = 0 and exited = 0){
+				gosub, DoBlockInput
 				receivedfailed := 1						
 				chatstep := "blank"		
 				SendInput, {F4 down}
@@ -668,6 +669,7 @@ Thread, Interrupt, -1
 	{
 		
 		if (failed1 = 0 and receivedfailed = 0 and exited = 0){
+			gosub, DoBlockInput
 			LogLock := 1
 			chatstep := "blank"				
 			SendInput, {F4 down}
@@ -849,12 +851,13 @@ Thread, Interrupt, -1
 				SendInput, {F4 down}
  				Sleep 50
  				SendInput, {F4 up}
-				Sleep 50
+				Gosub, DoUnBlockInput
 				MouseMove %c1% , %c2%
 				Sleep 50
 				SendEvent, {Click down}
 				Sleep 50				
-				SendEvent, {Click up}				
+				SendEvent, {Click up}	
+				Sleep 50
 				Gosub, DoBlockInput
 				exited := 1
 				doleave := 0				
