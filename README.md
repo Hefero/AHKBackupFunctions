@@ -12,3 +12,8 @@ the Client only accepts
 Put ramaladnis on last tab, cuz they bug when tab is full cuz they dont stack
 
 Turn off Firewall or add the Port u are using to exceptions on Firewall
+
+Tested resolutions:
+1920x1080
+1680x1050
+1600x900
