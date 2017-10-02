@@ -491,7 +491,6 @@ CoordMode, Mouse, Screen
 			scale :=  "*w" . menu_start_disabled[6] . " *h" . menu_start_disabled[7]
 			ImageSearch , MenuDisabledX, MenuDisabledY, menu_start_disabled[1], menu_start_disabled[2], menu_start_disabled[3], menu_start_disabled[4], *23 %scale% %pathpng%
 			if(MenuDisabledX > 0){
-				Sleep 5000
 				Gosub, DoUnBlockInput
 				Sleep 1000
 				if (paused = 1){			
@@ -839,7 +838,10 @@ CoordMode, Mouse, Screen
 			WinGetTitle, ActiveWin, A
 			if (ActiveWin = RosWintitle){
 				Sleep 500
-				SendInput , {Space}				
+				WinGetPos,rosX, rosY, rosW, rosH, %RosWintitle%		
+				rosX += (rosW) - Round(90*(A_ScreenWidth/1920), 0)
+				rosY += (rosH) - Round(30*(A_ScreenHeight/1080), 0)
+				Click %rosX% , %rosY%
 				Break
 			}
 		}
@@ -921,7 +923,6 @@ CoordMode, Mouse, Screen
 				exited := 1
 				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input")
-				Sleep 9000
 				Break
 			}
 			Sleep 200
