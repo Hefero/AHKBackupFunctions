@@ -1,5 +1,6 @@
 # Multibot
 AHk script for handling RosBot party on greater rifts
+(for now only works with 2 bots)
 
 Client Needs to be party leader
 
