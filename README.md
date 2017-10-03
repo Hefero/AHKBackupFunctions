@@ -19,6 +19,7 @@ the Client only accepts
 Both need Overlay on and Full Logs
 
 Put ramaladnis on last tab with many spaces, cuz they bug when tab is full cuz they dont stack
+
 Set your vendoritemcount to 20 and kadala shards to something low that also won't overflow at the
 end of the rift, that is also problematic (will cause them to fail and restart).
 
