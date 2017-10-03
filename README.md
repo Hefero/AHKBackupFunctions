@@ -3,7 +3,7 @@ AHk script for handling RosBot party on greater rifts
 (for now only works with 2 bots)
 
 1st, Open the Server:
-Server needs to run as admin and run after rosbot, then you select rosb process, logs.txt
+Server needs to run as admin and run after rosbot process is up (dont start the sequence yet), then you select rosb process, logs.txt
 and choose a port number, then click update
 
 2nd, run the Client:
