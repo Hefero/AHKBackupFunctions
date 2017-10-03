@@ -230,6 +230,7 @@ Thread, Interrupt, -1
 		
 		IfInString, controlText, imonmenu
 		{		
+			Sleep 3000
 			otheronmenu := 1
 			WriteLog("imonmenu received")
 			if (imonmenu = 1){						
@@ -418,6 +419,7 @@ Thread, Interrupt, -1
 		if(MenuDisabledX > 0 and otheronmenu =1 and imonmenu =1){
 			WriteLog("both on menu: starting")
 			WriteLog("menu start enabled: block off")			
+			Sleep 3000
 			Gosub, DoUnBlockInput	
 			;StringSend := "startros"
 			;Gosub, SenderText
@@ -857,13 +859,10 @@ Thread, Interrupt, -1
  				SendInput, {F4 up}
 				Sleep 50			
 				Gosub, DoUnBlockInput
-				Sleep 50
 				MouseMove %c1% , %c2%
-				Sleep 50
 				SendEvent, {Click down}
 				Sleep 50
 				SendEvent, {Click up}
-				Sleep 50
 				Gosub, DoBlockInput
 				Sleep 9200
 				exited := 1
@@ -1014,7 +1013,6 @@ Thread, Interrupt, -1
 	 DoBlockInput:
 	 if(blockedinput = 0){
 		blockedinput := 1
-		WriteLog("blocking")
 		BlockInput, on
 	 }
 	 return
@@ -1023,7 +1021,6 @@ Thread, Interrupt, -1
 	 if(blockedinput = 1){
 		blockedinput := 0
 		BlockInput,off
-		WriteLog("unblocking")
 	 }	
 	 return
 	 
