@@ -24,7 +24,7 @@ CoordMode, Mouse, Screen
 	global leaveparty2 := [701, 567, 1216, 726, "\pngs\newleaveparty2.png", 410, 23 , 60,1] ; tbm funciona para inactivity
 	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
-	global risenecro := [1422, 971, 1664, 1027, "\pngs\risenecro.png", 171,18 , "*30 *TransBlack",3]
+	;global risenecro := [1422, 971, 1664, 1027, "\pngs\risenecro.png", 171,18 , "*30 *TransBlack",3]
 	
 	
 	global teleport1 := [62 , 247,2]
@@ -36,7 +36,7 @@ CoordMode, Mouse, Screen
 	global leaveparty2button := [860, 660,2]
 	global disconnectedbutton := [ 962 , 661,1 ]
 	global cancelgriftbutton := [ 962 , 883, 1 ]
-	global risenecrobutton := [ 1540 , 990,3 ]
+	;global risenecrobutton := [ 1540 , 990,3 ]
 	
 	ConvertClick(teleport1)
 	ConvertClick(teleport2)
@@ -47,7 +47,7 @@ CoordMode, Mouse, Screen
 	ConvertClick(leaveparty2button)
 	ConvertClick(disconnectedbutton)
 	ConvertClick(cancelgriftbutton)
-	ConvertClick(risenecrobutton)
+	;ConvertClick(risenecrobutton)
 	
 	
 	ConvertCoordinates(grcomplete)
@@ -60,7 +60,7 @@ CoordMode, Mouse, Screen
 	ConvertCoordinates(leavegame)
 	ConvertCoordinates(leaveparty)
 	ConvertCoordinates(leaveparty2)
-	ConvertCoordinates(risenecro)
+	;ConvertCoordinates(risenecro)
 	
 	global paused := 0
 	WriteLog("Start Script Executing")
@@ -656,21 +656,21 @@ CoordMode, Mouse, Screen
 	}
 	 
 	;risenecro - ok - 
-	if (blockedinput = 1 and failed1 = 1){
-		pathpng := A_ScriptDir . risenecro[5]
-		scale :=  "*w" . risenecro[6] . " *h" . risenecro[7]
-		options := risenecro[8]
-		ImageSearch , risenecroX, risenecroY, risenecro[1], risenecro[2], risenecro[3], risenecro[4], %options% %scale% %pathpng%
-		if(risenecroX > 0){
-			WriteLog("imagereader risenecro")
-			Gosub, DoUnBlockInput
-			Sleep 500
-			c1 := risenecrobutton[1]
-			c2 := risenecrobutton[2]
-			Click %c1% , %c2%
-			Gosub, DoBlockInput
-		}
-	}
+	;if (blockedinput = 1 and failed1 = 1){
+	;	pathpng := A_ScriptDir . risenecro[5]
+	;	scale :=  "*w" . risenecro[6] . " *h" . risenecro[7]
+	;	options := risenecro[8]
+	;	ImageSearch , risenecroX, risenecroY, risenecro[1], risenecro[2], risenecro[3], risenecro[4], %options% %scale% %pathpng%
+	;	if(risenecroX > 0){
+	;		WriteLog("imagereader risenecro")
+	;		Gosub, DoUnBlockInput
+	;		Sleep 500
+	;		c1 := risenecrobutton[1]
+	;		c2 := risenecrobutton[2]
+	;		Click %c1% , %c2%
+	;		Gosub, DoBlockInput
+	;	}
+	;}
 	return
 	
 	str_getTail(_Str, _LineNum = 1)

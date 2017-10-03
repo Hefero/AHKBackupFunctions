@@ -43,7 +43,7 @@ Thread, Interrupt, -1
 	
 	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	
-	global risenecro := [1422, 971, 1664, 1027, "\pngs\risenecro.png", 171,18 , "*30 *TransBlack",3]
+	;global risenecro := [1422, 971, 1664, 1027, "\pngs\risenecro.png", 171,18 , "*30 *TransBlack",3]
 	
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
 	
@@ -56,7 +56,7 @@ Thread, Interrupt, -1
 	global leavepartybutton := [1690, 900,2]
 	global leaveparty2button := [860, 660,2]
 	global disconnectedbutton := [ 962 , 661,1 ]
-	global risenecrobutton := [ 1540 , 990,3 ]
+	;global risenecrobutton := [ 1540 , 990,3 ]
 	
 	ConvertClick(teleport1)
 	ConvertClick(teleport2)
@@ -66,7 +66,7 @@ Thread, Interrupt, -1
 	ConvertClick(leavepartybutton)
 	ConvertClick(leaveparty2button)
 	ConvertClick(disconnectedbutton)
-	ConvertClick(risenecrobutton)
+	;ConvertClick(risenecrobutton)
 	
 	
 	ConvertCoordinates(grcomplete)
@@ -79,7 +79,7 @@ Thread, Interrupt, -1
 	ConvertCoordinates(leavegame)
 	ConvertCoordinates(leaveparty)
 	ConvertCoordinates(leaveparty2)
-	ConvertCoordinates(risenecro)
+	;ConvertCoordinates(risenecro)
 	
 	
 	WriteLog("Script Execution started")
@@ -516,21 +516,21 @@ Thread, Interrupt, -1
 	}
 	
 	;risenecro - ok - 
-	if (blockedinput = 1 and failed1 = 1){
-		pathpng := A_ScriptDir . risenecro[5]
-		scale :=  "*w" . risenecro[6] . " *h" . risenecro[7]
-		options := risenecro[8]
-		ImageSearch , risenecroX, risenecroY, risenecro[1], risenecro[2], risenecro[3], risenecro[4], %options% %scale% %pathpng%
-		if(risenecroX > 0){
-			WriteLog("imagereader risenecro")
-			Gosub, DoUnBlockInput
-			Sleep 500
-			c1 := risenecrobutton[1]
-			c2 := risenecrobutton[2]
-			Click %c1% , %c2%
-			Gosub, DoBlockInput
-		}
-	}
+	;if (blockedinput = 1 and failed1 = 1){
+	;	pathpng := A_ScriptDir . risenecro[5]
+	;	scale :=  "*w" . risenecro[6] . " *h" . risenecro[7]
+	;	options := risenecro[8]
+	;	ImageSearch , risenecroX, risenecroY, risenecro[1], risenecro[2], risenecro[3], risenecro[4], %options% %scale% %pathpng%
+	;	if(risenecroX > 0){
+	;		WriteLog("imagereader risenecro")
+	;		Gosub, DoUnBlockInput
+	;		Sleep 500
+	;		c1 := risenecrobutton[1]
+	;		c2 := risenecrobutton[2]
+	;		Click %c1% , %c2%
+	;		Gosub, DoBlockInput
+	;	}
+	;}
 		
 	;;accept omni
 	
@@ -1115,9 +1115,9 @@ Thread, Interrupt, -1
 	#F1::
 		Gui, Add, Text, x27 y24 w60 h20 , Server IP
 		Gui, Add, Text, x27 y64 w60 h20 , Server Port
-		Gui, Add, Text, x27 y104 w60 h20 , Path to Log
-		Gui, Add, Edit, x117 y64 w100 h20 vserverport , %serverport%
+		Gui, Add, Text, x27 y104 w60 h20 , Path to Log		
 		Gui, Add, Edit, x117 y24 w140 h20 vserverip , %serverip%
+		Gui, Add, Edit, x117 y64 w100 h20 vserverport , %serverport%
 		Gui, Add, Edit, x117 y104 w250 h20 vlogpath , %logpath%
 		Gui, Add, GroupBox, x17 y4 w420 h140 ,
 		Gui, Add, GroupBox, x17 y154 w420 h170 , Log
