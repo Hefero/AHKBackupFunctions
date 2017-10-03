@@ -925,7 +925,7 @@ CoordMode, Mouse, Screen
 				SendEvent, {Click up}
 				Sleep 50
 				Gosub, DoBlockInput
-				Sleep 9000
+				Sleep 12000
 				exited := 1
 				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input")
