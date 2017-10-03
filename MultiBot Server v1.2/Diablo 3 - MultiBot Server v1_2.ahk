@@ -957,13 +957,10 @@ CoordMode, Mouse, Screen
  				SendInput, {F4 up}
 				Sleep 50			
 				Gosub, DoUnBlockInput
-				Sleep 50
 				MouseMove %c1% , %c2%
-				Sleep 50
 				SendEvent, {Click down}
 				Sleep 50
 				SendEvent, {Click up}
-				Sleep 50
 				Gosub, DoBlockInput
 				Sleep 9200
 				exited := 1
@@ -1115,8 +1112,7 @@ CoordMode, Mouse, Screen
    
     DoBlockInput:
 		if(blockedinput = 0){
-		  blockedinput := 1	
-		  WriteLog("blocking")		  
+		  blockedinput := 1		  
 		  BlockInput, on
 		}
 	return
@@ -1125,7 +1121,6 @@ CoordMode, Mouse, Screen
 		if(blockedinput = 1){
 		  blockedinput := 0
 		  BlockInput, off
-		  WriteLog("unblocking")	
 		}   
 	return
 
