@@ -96,7 +96,7 @@ Thread, Interrupt, -1
 	return
 	
 	F12::		
-		StringSend := "TESTEMSGf12"
+		StringSend := "testmsg"
 		Gosub, SenderText	
 	return
 	
@@ -123,9 +123,10 @@ Thread, Interrupt, -1
 			WriteLog("message received: " controlText)
 		}
 		
-		IfInString, controlText, msgbox
+		IfInString, controlText, testmsg
 		{
-			msgbox received
+			GuiControlGet, logtextapp,, logtext
+			GuiControl, Text, logtext,%logtextapp%`nTest Msg Received: Successful Server Side Connection
 		}
 		
 		
@@ -329,19 +330,21 @@ Thread, Interrupt, -1
 			myClient.onRecv := func("OnTCPRecv")
 			Sleep 100
 			testconn := myClient.sendText("testconnection")
-			GuiControl, Text, logtext, %hlogtext% `n Connecting
+			GuiControlGet, logtextapp,, logtext
+			GuiControl, Text, logtext, %logtextapp%`nConnecting
 			if (testconn > 5){
 				WriteLog("starting timers")
 				SetTimer, imagereader, 1 ,1
 				SetTimer, logreader, 1,2	
 				;SetTimer, pingconnection, 30000			
 				SetTimer, idlewatcher, 30000
-				GuiControl, Text, logtext,Sucessfully Connected,`nGoing into background...
+				
+				GuiControl, Text, logtext,%logtextapp%`nSucessfully Connected,`nGoing into background...
 				Sleep 4000
 				Gui, destroy
 			}
 			else {
-				GuiControl, Text, logtext,`nCouldnt connect. Try again.
+				GuiControl, Text, logtext,%logtextapp%`nCouldnt connect. Try again.
 			}
 	return	
 	

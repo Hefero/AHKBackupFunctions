@@ -68,7 +68,7 @@ CoordMode, Mouse, Screen
 	
 	Iniread, serverport, variables.ini, Settings, ServerPort
 	Iniread, logpath, variables.ini, Settings, LogPath
-	
+	Iniread, InitialWin, variables.ini, Settings, RosWintitle
 	
 	global myServer := new SocketTCP()
 	myServer.onAccept := Func("OnTCPAccept")
@@ -76,16 +76,27 @@ CoordMode, Mouse, Screen
 	myServer.listen()
 	WriteLog("Server listening")
 	
-	Gui Add, Text, x41 y154 w80 h20 +Center, Log File
-	Gui Add, GroupBox, x18 y38 w728 h276 , Settings
-	Gui Add, Edit, vserverport x139 y91 w107 h18 , %serverport%
-	Gui Add, Edit, vlogpath x136 y154 w305 h18 , %logpath%
-	Gui Add, Button, gdoexit x521 y343 w110 h40, Hide
+	
+	Gui Add, Text, x45 y107 w49 h20 +Right, Log File
+	Gui Add, GroupBox, x19 y38 w728 h276 , Settings
+	Gui Add, Edit, vserverport x121 y67 w107 h18 , %serverport%
+	Gui Add, Edit, vlogpath x120 y107 w305 h18 , %logpath%
+	Gui Add, Button, gdoexit x520 y341 w110 h40, Hide
 	Gui Add, Button, gdostart x186 y342 w110 h40, Update
-	Gui Add, Text, x59 y189 w39 h17 +Center, Browse
-	Gui Add, Text, x41 y91 w80 h20 +Center, Port
-	Gui Add, Button, gdochoosefile x136 y186 w54 h19 , Choose
-	Gui Add, ListView, gprocesslistview AltSubmit x553 y119 w120 h160, Name
+	Gui Add, Text, x58 y148 w39 h17 +Center, Browse
+	Gui Add, Text, x55 y68 w38 h20 +Right, Port
+	Gui Add, Button, gdochoosefile x119 y144 w54 h19 , Choose
+	Gui Add, ListView, gprocesslistview AltSubmit x551 y82 w120 h160, Name
+	Gui Add, Button, grefreshprocess x551 y255 w54 h19, Refresh
+	Gui Add, GroupBox, x45 y183 w424 h104
+	Gui Add, Text, vguitext x53 y197 w407 h84 Left, %guitext%
+	if (serverport >0){
+		GuiControl, Text, guitext,Server Started on port %serverport%
+	}
+	if (StrLen(InitialWin) >0){
+		GuiControlGet, guitextapp,, guitext
+		GuiControl, Text, guitext,%guitextapp%`nProcess: %InitialWin%
+	}
 	for process in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process")
 	{
 		if (process.Name != "chrome.exe" and process.Name != "svchost.exe") {
@@ -98,10 +109,26 @@ CoordMode, Mouse, Screen
 		}
 		
 	}
-	Gui Add, Text, vrosbproctext x555 y89 w120 h23 +0x200, RosB Process
+	Gui Add, Text, vrosbproctext x552 y59 w190 h18, RosB Process: %InitialWin%
 	Gui Show, w798 h402, Window
 	Return
 
+
+	refreshprocess:
+	LV_Delete()
+	for process in ComObjGet("winmgmts:").ExecQuery("Select * from Win32_Process")
+	{
+		if (process.Name != "chrome.exe" and process.Name != "svchost.exe") {
+			processname1 := process.Name
+			WinGetTitle, ProcessTitle, ahk_exe %processname1%	
+			StringLen, length, ProcessTitle
+			if (length > 2){
+				LV_Add("", ProcessTitle)
+			}
+		}
+		
+	}
+	return
 
 	dochoosefile:
 		FileSelectFile, logfileselected
@@ -142,6 +169,8 @@ CoordMode, Mouse, Screen
 		myClient.onRecv := func("OnTCPRecv")
 		myClient.onDisconnect := func("OnTCPDisconnect")
 		WriteLog("connection accepted")
+		GuiControlGet, guitextapp,, guitext
+		GuiControl, Text, guitext,%guitextapp%`nClient Connected
 	}
 	
 	OnTCPDisconnect(this)
@@ -149,9 +178,13 @@ CoordMode, Mouse, Screen
 		WriteLog("TCP Client Disconected")
 	}
 			
-	
 	F12::
-		myClient.sendText("dh have urushi")
+		myClient.sendText("testmsg")
+	return
+	
+	
+	F11::
+		myClient.sendText("start")
 	return
 	
 
@@ -159,10 +192,15 @@ CoordMode, Mouse, Screen
 	{
 		Thread, NoTimers, true
 		global controlText := this.recvText()	
-		;;ToolTip, controlText = %controlText% , 850 , 980, 16
 		IfNotInString, controlText, ping
 		{
 			WriteLog("message received: " controlText)
+		}
+		
+		IfInString, controlText, testmsg
+		{
+			GuiControlGet, guitextapp,, guitext
+			GuiControl, Text, guitext,%guitextapp%`nTest Msg Received: Successful Client Connection
 		}
 		
 	   IfInString, controlText, go to menu
