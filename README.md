@@ -26,7 +26,8 @@ end of the rift, that is also problematic (will cause them to fail and restart).
 Turn off Firewall or add the Port u are using to exceptions on Firewall if they cant connect
 
 
-Tested resolutions:
+Tested resolutions so far:
 1920x1080
 1680x1050
 1600x900
+(should work on more, because coordinates are converted)
