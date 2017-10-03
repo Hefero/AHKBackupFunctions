@@ -8,7 +8,9 @@ and choose a port number, then click update
 
 2nd, run the Client:
 Client Needs to be party leader and then connect to Server IP and Port, then 
-just start RosBot
+just start RosBot GR sequence
+
+
 LogPath is the path to logs.txt from rosbot documents
 
 Both need OpenGreaterRift to yes, but Server will determine the level,
