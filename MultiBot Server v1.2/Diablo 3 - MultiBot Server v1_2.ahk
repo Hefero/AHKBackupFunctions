@@ -36,6 +36,7 @@ CoordMode, Mouse, Screen
 	global leaveparty2button := [860, 660,2]
 	global disconnectedbutton := [ 962 , 661,1 ]
 	global cancelgriftbutton := [ 962 , 883, 1 ]
+	global risenecrobutton := [ 1540 , 990,3 ]
 	
 	ConvertClick(teleport1)
 	ConvertClick(teleport2)
@@ -46,6 +47,7 @@ CoordMode, Mouse, Screen
 	ConvertClick(leaveparty2button)
 	ConvertClick(disconnectedbutton)
 	ConvertClick(cancelgriftbutton)
+	ConvertClick(risenecrobutton)
 	
 	
 	ConvertCoordinates(grcomplete)
@@ -625,8 +627,8 @@ CoordMode, Mouse, Screen
 			WriteLog("imagereader risenecro")
 			Gosub, DoUnBlockInput
 			Sleep 500
-			c1 := risenecroX
-			c2 := risenecroY
+			c1 := risenecrobutton[1]
+			c2 := risenecrobutton[2]
 			Click %c1% , %c2%
 			Gosub, DoBlockInput
 		}

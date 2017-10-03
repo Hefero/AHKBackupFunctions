@@ -56,6 +56,7 @@ Thread, Interrupt, -1
 	global leavepartybutton := [1690, 900,2]
 	global leaveparty2button := [860, 660,2]
 	global disconnectedbutton := [ 962 , 661,1 ]
+	global risenecrobutton := [ 1540 , 990,3 ]
 	
 	ConvertClick(teleport1)
 	ConvertClick(teleport2)
@@ -65,6 +66,7 @@ Thread, Interrupt, -1
 	ConvertClick(leavepartybutton)
 	ConvertClick(leaveparty2button)
 	ConvertClick(disconnectedbutton)
+	ConvertClick(risenecrobutton)
 	
 	
 	ConvertCoordinates(grcomplete)
@@ -520,8 +522,8 @@ Thread, Interrupt, -1
 			WriteLog("imagereader risenecro")
 			Gosub, DoUnBlockInput
 			Sleep 500
-			c1 := risenecroX
-			c2 := risenecroY
+			c1 := risenecrobutton[1]
+			c2 := risenecrobutton[2]
 			Click %c1% , %c2%
 			Gosub, DoBlockInput
 		}
@@ -1136,3 +1138,4 @@ Thread, Interrupt, -1
 		IniWrite, %logpath%, variables.ini, Settings, LogPath
 		gosub, #F9
 	return
+
