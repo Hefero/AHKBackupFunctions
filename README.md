@@ -25,6 +25,7 @@ end of the rift, that is also problematic (will cause them to fail and restart).
 
 Turn off Firewall or add the Port u are using to exceptions on Firewall if they cant connect
 
+If it keeps returning to menu when you first start it, you may need to delete logs.txt and go back to first step
 
 Tested resolutions so far:
 1920x1080
