@@ -49,7 +49,7 @@ Thread, Interrupt, -1
 	
 	
 	global teleport1 := [62 , 247,2]
-	global teleport2 := [170, 360,2]
+	global teleport2 := [170, 390,2]
 	global acceptclick := [961, 805,1]
 	global cancelbutton := [1061, 375,1]
 	global leavegamebutton := [291, 484,2]
