@@ -25,7 +25,7 @@ CoordMode, Mouse, Screen
 	global menu_start_disabled := [223, 471, 414, 560, "\pngs\menu_disabled_side2_small.png", 32, 59 , "*23 *TransWhite",2] 
 	global leavegame := [1024, 955, 1092, 1000, "\pngs\esc_return.png", 45, 26, "*30 *TransBlack", 1] ; tbm funciona para logoutonmenu
 	global logoutonmenu :=  [81, 454, 405, 514, "\pngs\newleavegame.png", 38, 42, 50,2] 
-	global acceptgr := global acceptgr := [780, 793, 1156, 864, "\pngs\newacceptgr.png", 70, 43 , "*35 *TransBlack",1]
+	global acceptgr := [780, 793, 1156, 864, "\pngs\newacceptgr.png", 70, 43 , "*35 *TransBlack",1]
 	global leaveparty := [1618, 878, 1672, 925, "\pngs\newleaveparty.png", 16, 32 , 60,3]
 	global leaveparty2 := [701, 567, 1216, 726, "\pngs\newleaveparty2.png", 410, 23 , 60,1] ; tbm funciona para inactivity
 	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
