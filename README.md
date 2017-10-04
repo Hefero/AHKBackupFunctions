@@ -13,6 +13,8 @@ just start RosBot GR sequence
 
 LogPath is the path to logs.txt from rosbot documents
 
+you need to go to game options on both, put resolution to fullscreen 800x600, and then change back to windowed (fullscreen)
+
 Both need OpenGreaterRift to yes, but Server will determine the level,
 the Client only accepts
 
