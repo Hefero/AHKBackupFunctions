@@ -1146,7 +1146,8 @@ CoordMode, Mouse, Screen
 
 	ConvertCoordinates(ByRef Array)
 	{
-		WinGetPos, , , DiabloWidth, DiabloHeight, Diablo III
+		DiabloWidth := A_ScreenWidth		
+		DiabloHeight := A_ScreenHeight
 		D3ScreenResolution := DiabloWidth*DiabloHeight
 
 		Position := Array[9]
@@ -1180,7 +1181,8 @@ CoordMode, Mouse, Screen
 	
 	ConvertClick(ByRef Array)
 	{
-		WinGetPos, , , DiabloWidth, DiabloHeight, Diablo III
+		DiabloWidth := A_ScreenWidth		
+		DiabloHeight := A_ScreenHeight
 		D3ScreenResolution := DiabloWidth*DiabloHeight
 
 		Position := Array[3]
