@@ -38,7 +38,7 @@ CoordMode, Mouse, Screen
 	}
 	
 	global riftopen := [287, 190, 457, 386, "\pngs\rift-open.png", 93, 118 , 65,2] 
-	global cancelgrift := [1030, 340, 1130, 405, "\pngs\g2cancel.png", 78, 45, "*65 *TransBlack", 1]
+	global cancelgrift := [1030, 340, 1130, 405, "\pngs\g2cancel.png", 78, 45, "*65 *TransBlack", 1,"*50 *TransBlack"]
 	global menu_start_disabled := [223, 471, 414, 560, "\pngs\newmenu_start_disabled.png", 56, 44 , 25,2] 
 	global leavegame := [1024, 955, 1092, 1000, "\pngs\esc_return.png", 45, 26, "*30 *TransBlack", 1] ; tbm funciona para logoutonmenu
 	global logoutonmenu :=  [81, 454, 405, 514, "\pngs\newleavegame.png", 38, 42, 50,2] 
@@ -478,10 +478,13 @@ CoordMode, Mouse, Screen
 	
 	;;cancel omni
 	
-	if (paused = 1 or accept = 1 and blockedinput = 0){
+	if (paused = 1 or accept = 1 and blockedinput = 0 and exited = 0){
 		pathpng := A_ScriptDir . cancelgrift[5]
 		scale :=  "*w" . cancelgrift[6] . " *h" . cancelgrift[7]
 		options := cancelgrift[8]
+		if (A_ScreenWidth <= 1280 and A_ScreenHeight < 1024){
+			options := cancelgrift[10]		
+		}
 		ImageSearch , CancelGRiftX, CancelGRiftY, cancelgrift[1], cancelgrift[2], cancelgrift[3], cancelgrift[4], %options% %scale% %pathpng%
 		if (CancelGRiftX > 0){
 			WriteLog("Cancel Grift found imagereader: trying to click")
@@ -542,7 +545,7 @@ CoordMode, Mouse, Screen
 		
 	;;accept omni
 	
-		if (paused = 1){
+		if (paused = 1 and exited = 0){
 			pathpng := A_ScriptDir . acceptgr[5]
 			scale :=  "*w" . acceptgr[6] . " *h" . acceptgr[7]
 			ImageSearch , AcceptRiftX, AcceptRiftY, acceptgr[1], acceptgr[2], acceptgr[3], acceptgr[4], *50 %scale% %pathpng%
