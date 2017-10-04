@@ -22,7 +22,7 @@ CoordMode, Mouse, Screen
 	
 	global riftopen := [287, 190, 457, 386, "\pngs\rift-open.png", 93, 118 , 65,2] 
 	global cancelgrift := [1030, 340, 1130, 405, "\pngs\g2cancel.png", 78, 45, "*65 *TransBlack", 1] 
-	global menu_start_disabled := [223, 471, 414, 560, "\pngs\menu_disabled_side2_small.png", 32, 59 , 30,2] 
+	global menu_start_disabled := [223, 471, 414, 560, "\pngs\menu_disabled_side2_small.png", 32, 59 , "*23 *TransWhite",2] 
 	global leavegame := [1024, 955, 1092, 1000, "\pngs\esc_return.png", 45, 26, "*30 *TransBlack", 1] ; tbm funciona para logoutonmenu
 	global logoutonmenu :=  [81, 454, 405, 514, "\pngs\newleavegame.png", 38, 42, 50,2] 
 	global acceptgr := [780, 793, 1156, 864, "\pngs\newacceptgr.png", 70, 43 , 60,1]
@@ -536,15 +536,16 @@ CoordMode, Mouse, Screen
 		{
 			pathpng := A_ScriptDir . menu_start_disabled[5]
 			scale :=  "*w" . menu_start_disabled[6] . " *h" . menu_start_disabled[7]
-			ImageSearch , MenuDisabledX, MenuDisabledY, menu_start_disabled[1], menu_start_disabled[2], menu_start_disabled[3], menu_start_disabled[4], *23 %scale% %pathpng%
-			if(MenuDisabledX > 0){
-				Gosub, DoUnBlockInput
-				Sleep 1000
+			options := menu_start_disabled[8]
+			ImageSearch , MenuDisabledX, MenuDisabledY, menu_start_disabled[1], menu_start_disabled[2], menu_start_disabled[3], menu_start_disabled[4], %options% %scale% %pathpng%
+			if(MenuDisabledX > 0){				
 				if (paused = 1){			
 					paused := 0
 					SendInput, {F6}	
 					WriteLog("F6 unpausing: imonmenu detect imagereader")
-				}	
+				}					
+				Sleep 2500
+				Gosub, DoUnBlockInput
 				WriteLog("imagereader menu disabled")
 				StringSend := "imonmenu"
 				Gosub, SenderText
@@ -612,7 +613,7 @@ CoordMode, Mouse, Screen
 	   
    
    ;;cancel omni
-    if(paused = 1){
+    if(paused = 1 and exited = 0){
 		pathpng := A_ScriptDir . cancelgrift[5]
 		scale :=  "*w" . cancelgrift[6] . " *h" . cancelgrift[7]
 		ImageSearch , CancelGRiftX, CancelGRiftY, cancelgrift[1], cancelgrift[2], cancelgrift[3], cancelgrift[4], *25 %scale% %pathpng%
