@@ -864,17 +864,18 @@ CoordMode, Mouse, Screen
 				c1 := leavegamebutton[1]
 				c2 := leavegamebutton[2]
 				SendInput, {F4 down}
- 				Sleep 100
+ 				Sleep 150
  				SendInput, {F4 up}
-				Gosub, DoUnBlockInput
+				Sleep 120
 				MouseMove %c1% , %c2%
+				Sleep 200
 				SendEvent, {Click down}
-				Sleep 80
+				Sleep 200
 				SendEvent, {Click up}
-				Gosub, DoBlockInput
 				Sleep 9200
 				exited := 1
 				doleave := 0
+				imonmenu := 1
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Break
 			}
