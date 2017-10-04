@@ -5,7 +5,7 @@
 #HotkeyInterval 99000000
 #KeyHistory 0
 ListLines Off
-Process, Priority, , A
+Process, Priority, , R
 SetBatchLines, -1
 SetKeyDelay, -1, -1
 SetMouseDelay, -1
@@ -92,7 +92,7 @@ CoordMode, Mouse, Screen
 	Gui Add, Text, x58 y148 w39 h17 +Center, Browse
 	Gui Add, Text, x55 y68 w38 h20 +Right, Port
 	Gui Add, Button, gdochoosefile x119 y144 w54 h19 , Choose
-	Gui Add, ListView, gprocesslistview AltSubmit x551 y82 w120 h160, Name
+	Gui Add, ListView, gprocesslistview AltSubmit x551 y92 w120 h160, Name
 	Gui Add, Button, grefreshprocess x551 y255 w54 h19, Refresh
 	Gui Add, GroupBox, x45 y183 w424 h104
 	Gui Add, Text, vguitext x53 y197 w407 h84 Left, %guitext%
@@ -115,7 +115,7 @@ CoordMode, Mouse, Screen
 		}
 		
 	}
-	Gui Add, Text, vrosbproctext x552 y59 w190 h18, RosB Process: %InitialWin%
+	Gui Add, Text, vrosbproctext x552 y59 w190 h28, RosB Process: %InitialWin%
 	Gui Show, w798 h402, Window
 	Return
 
@@ -217,7 +217,7 @@ CoordMode, Mouse, Screen
 			failed1 := 1
 			receivedfailed := 1
 			SendInput, {F4 down}
- 			Sleep 50
+ 			Sleep 100
 			SendInput, {F4 up}
  			Sleep 1000
 			WriteLog("go to menu received: pause and leave")
@@ -532,28 +532,28 @@ CoordMode, Mouse, Screen
 	imagereader:
 		Thread, Interrupt, 0
 	;;menu start
-		if (failed1 = 1 and talkenter = 1)
-		{
-			pathpng := A_ScriptDir . menu_start_disabled[5]
-			scale :=  "*w" . menu_start_disabled[6] . " *h" . menu_start_disabled[7]
-			options := menu_start_disabled[8]
-			ImageSearch , MenuDisabledX, MenuDisabledY, menu_start_disabled[1], menu_start_disabled[2], menu_start_disabled[3], menu_start_disabled[4], %options% %scale% %pathpng%
-			if(MenuDisabledX > 0){				
-				if (paused = 1){			
-					paused := 0
-					SendInput, {F6}	
-					WriteLog("F6 unpausing: imonmenu detect imagereader")
-				}					
-				Sleep 2500
-				Gosub, DoUnBlockInput
-				WriteLog("imagereader menu disabled")
-				StringSend := "imonmenu"
-				Gosub, SenderText
-				talkenter := 0
-				Gosub, initial
-			}
-
-		}
+		;if (failed1 = 1 and talkenter = 1)
+		;{
+		;	pathpng := A_ScriptDir . menu_start_disabled[5]
+		;	scale :=  "*w" . menu_start_disabled[6] . " *h" . menu_start_disabled[7]
+		;	options := menu_start_disabled[8]
+		;	ImageSearch , MenuDisabledX, MenuDisabledY, menu_start_disabled[1], menu_start_disabled[2], menu_start_disabled[3], menu_start_disabled[4], %options% %scale% %pathpng%
+		;	if(MenuDisabledX > 0){				
+		;	;	if (paused = 1){			
+		;	;		paused := 0
+		;	;		SendInput, {F6}	
+		;	;		WriteLog("F6 unpausing: leave game detect imagereader")
+		;	;	}					
+		;	;	Sleep 5500
+		;	;	Gosub, DoUnBlockInput
+		;	;	WriteLog("imagereader menu disabled")
+		;	;	StringSend := "imonmenu"
+		;	;	Gosub, SenderText
+		;	;	talkenter := 0
+		;	;	Gosub, initial
+		;	}
+;
+		;}
 	
 	
 	
@@ -818,7 +818,7 @@ CoordMode, Mouse, Screen
 			gosub, DoBlockInput
 			LogLock := 1
 			SendInput, {F4 down}
-			Sleep 50
+			Sleep 100
 			SendInput, {F4 up}
 			Sleep 1000
 			WriteLog("next rift in different: f6 logout")
@@ -960,19 +960,30 @@ CoordMode, Mouse, Screen
 				c1 := leavegamebutton[1]
 				c2 := leavegamebutton[2]
 				SendInput, {F4 down}
- 				Sleep 50
+ 				Sleep 100
  				SendInput, {F4 up}
-				Sleep 50			
 				Gosub, DoUnBlockInput
 				MouseMove %c1% , %c2%
 				SendEvent, {Click down}
-				Sleep 50
+				Sleep 80
 				SendEvent, {Click up}
 				Gosub, DoBlockInput
-				Sleep 9200
+				Sleep 10200
 				exited := 1
 				doleave := 0
-				WriteLog("LEave game found: clicking leave game and blocking input")
+				WriteLog("LEave game found: clicking leave game and blocking input for 15 seconds")
+				if (paused = 1){			
+					paused := 0
+					SendInput, {F6}	
+					WriteLog("F6 unpausing: leave game detect imagereader and waited")
+				}					
+				Sleep 4500
+				Gosub, DoUnBlockInput
+				WriteLog("imagereader leave game")
+				StringSend := "imonmenu"
+				Gosub, SenderText
+				talkenter := 0
+				Gosub, initial
 				Break
 			}
 			Sleep 200
@@ -981,7 +992,7 @@ CoordMode, Mouse, Screen
 			Gosub, DoUnBlockInput
 			Sleep 50				
  			SendInput, {F4 down}
- 			Sleep 50
+ 			Sleep 100
  			SendInput, {F4 up}
 			Sleep 50
 			Gosub, dounpause
