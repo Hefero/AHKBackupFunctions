@@ -5,7 +5,7 @@
 #HotkeyInterval 99000000
 #KeyHistory 0
 ListLines Off
-Process, Priority, , R
+Process, Priority, , A
 SetBatchLines, -1
 SetKeyDelay, -1, -1
 SetMouseDelay, -1

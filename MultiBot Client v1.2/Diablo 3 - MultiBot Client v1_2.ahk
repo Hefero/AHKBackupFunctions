@@ -5,7 +5,7 @@
 #HotkeyInterval 99000000
 #KeyHistory 0
 ListLines Off
-Process, Priority, , R
+Process, Priority, , A
 SetBatchLines, -1
 SetKeyDelay, -1, -1
 SetMouseDelay, -1
@@ -591,7 +591,7 @@ CoordMode, Mouse, Screen
 	return
 	
 	init(){	
-		;ToolTip, ON , 1050 ,1050 , 1
+		WriteLog("Initializing Variables init function")
 		global imonmenu := 0
 		global otheronmenu := 0
 		global doleave := 0
@@ -621,6 +621,9 @@ CoordMode, Mouse, Screen
 		global idled := 0
 		global idledtries := 0
 		global blockedinput := 0
+		
+		SetTimer, imagereader, 1 ,1
+		SetTimer, logreader, 1,2
 	}
 	
 	str_getTail(_Str , _LineNum = 1)
