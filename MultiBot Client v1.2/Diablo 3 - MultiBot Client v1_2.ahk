@@ -32,7 +32,7 @@ Thread, Interrupt, -1
 	}
 	
 	global riftopen := [287, 190, 457, 386, "\pngs\rift-open.png", 93, 118 , 65,2] 
-	global cancelgrift := [1055, 152, 1209, 265, "\pngs\supercancel.png", 122, 84 , "*50 *TransBlack",1] 
+	global cancelgrift := [1030, 340, 1130, 405, "\pngs\g2cancel.png", 78, 45, "*50 *TransBlack", 1]
 	global menu_start_disabled := [223, 471, 414, 560, "\pngs\newmenu_start_disabled.png", 56, 44 , 25,2] 
 	global leavegame := [1024, 955, 1092, 1000, "\pngs\esc_return.png", 45, 26, "*30 *TransBlack", 1] ; tbm funciona para logoutonmenu
 	global logoutonmenu :=  [81, 454, 405, 514, "\pngs\newleavegame.png", 38, 42, 50,2] 
