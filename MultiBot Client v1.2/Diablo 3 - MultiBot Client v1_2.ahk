@@ -613,7 +613,7 @@ CoordMode, Mouse, Screen
 		global wentback := 0
 		global completed := 0
 		global stopopen := 1
-		global accept := 0
+		global accept := 1		
 		global otherurshi := 1
 		global failed1 := 0
 		global receivedfailed := 0	
