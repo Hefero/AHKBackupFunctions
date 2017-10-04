@@ -5,7 +5,7 @@
 #HotkeyInterval 99000000
 #KeyHistory 0
 ListLines Off
-Process, Priority, , A
+Process, Priority, , R
 SetBatchLines, -1
 SetKeyDelay, -1, -1
 SetMouseDelay, -1
@@ -220,7 +220,7 @@ CoordMode, Mouse, Screen
 				receivedfailed := 1						
 				chatstep := "blank"		
 				SendInput, {F4 down}
- 				Sleep 50
+ 				Sleep 100
  				SendInput, {F4 up}
  				Sleep 1000
 				Gosub, dopause			
@@ -689,7 +689,7 @@ CoordMode, Mouse, Screen
 			LogLock := 1
 			chatstep := "blank"				
 			SendInput, {F4 down}
- 			Sleep 50
+ 			Sleep 100
  			SendInput, {F4 up}
  			Sleep 1000
 			;BlockInput, on	
@@ -864,13 +864,12 @@ CoordMode, Mouse, Screen
 				c1 := leavegamebutton[1]
 				c2 := leavegamebutton[2]
 				SendInput, {F4 down}
- 				Sleep 50
+ 				Sleep 100
  				SendInput, {F4 up}
-				Sleep 50			
 				Gosub, DoUnBlockInput
 				MouseMove %c1% , %c2%
 				SendEvent, {Click down}
-				Sleep 50
+				Sleep 80
 				SendEvent, {Click up}
 				Gosub, DoBlockInput
 				Sleep 9200
@@ -885,7 +884,7 @@ CoordMode, Mouse, Screen
 			Gosub, DoUnBlockInput
 			Sleep 50				
  			SendInput, {F4 down}
- 			Sleep 50
+ 			Sleep 100
  			SendInput, {F4 up}
 			Sleep 50
 			Gosub, dounpause
