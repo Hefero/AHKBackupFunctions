@@ -489,6 +489,7 @@ CoordMode, Mouse, Screen
 		global gotourshi := 1
 		global talkenter :=1
 		global bosskilled := 0
+		global StringSend := ""
 		global talkingui := 0
 		global completed := 0
 		global accept := 0

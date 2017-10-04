@@ -446,9 +446,9 @@ CoordMode, Mouse, Screen
 			c2 := cancelgriftbutton[2]
 			Click %c1% , %c2%    
 			WriteLog("accept found: clicked cancel")
-			Sleep 50
 			StringSend := "cancelgrift"
 			Gosub, SenderText
+			WriteLog("accept found: sent cancelgrift")
 		}
 		Thread, NoTimers, false
 	}
@@ -503,6 +503,7 @@ CoordMode, Mouse, Screen
 		global gotourshi := 1
 		global talkenter :=1
 		global bosskilled := 0
+		global StringSend := ""
 		global talkingui := 0
 		global completed := 0
 		global accept := 0
@@ -805,7 +806,7 @@ CoordMode, Mouse, Screen
 	IfInString, chatstep, vendor loop done
 	{			
 		receivedfailed := 0
-		if (pausestart = 1 and paused = 0 ){
+		if (pausestart = 1 and paused = 0 and GR = 0){
 			LogLock := 1	
 			pausestart := 0					
 			if (paused = 0){			
