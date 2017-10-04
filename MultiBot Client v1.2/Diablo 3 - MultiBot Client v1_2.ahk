@@ -313,7 +313,7 @@ CoordMode, Mouse, Screen
 			global wentback := 0
 			global completed := 0
 			global stopopen := 1
-			global accept := 0
+			global accept := 1
 			global otherurshi := 1
 			global failed1 := 0
 			global failed2 := 0
@@ -478,7 +478,7 @@ CoordMode, Mouse, Screen
 	
 	;;cancel omni
 	
-	if (paused = 1 or accept = 1 and blockedinput = 0 and exited = 0){
+	if (accept = 1 and blockedinput = 0 and exited = 0){
 		pathpng := A_ScriptDir . cancelgrift[5]
 		scale :=  "*w" . cancelgrift[6] . " *h" . cancelgrift[7]
 		options := cancelgrift[8]
