@@ -42,7 +42,7 @@ CoordMode, Mouse, Screen
 	global menu_start_disabled := [223, 471, 414, 560, "\pngs\newmenu_start_disabled.png", 56, 44 , 25,2] 
 	global leavegame := [1024, 955, 1092, 1000, "\pngs\esc_return.png", 45, 26, "*30 *TransBlack", 1] ; tbm funciona para logoutonmenu
 	global logoutonmenu :=  [81, 454, 405, 514, "\pngs\newleavegame.png", 38, 42, 50,2] 
-	global acceptgr := [780, 793, 1156, 864, "\pngs\newacceptgr.png", 70, 43 , 60,1]
+	global acceptgr := [780, 793, 1156, 864, "\pngs\newacceptgr.png", 70, 43 , "*35 *TransBlack",1]
 	global leaveparty := [1618, 878, 1672, 925, "\pngs\newleaveparty.png", 16, 32 , 60,3]
 	global leaveparty2 := [701, 567, 1216, 726, "\pngs\newleaveparty2.png", 410, 23 , 60,1] ; tbm funciona para inactivity
 	
@@ -548,11 +548,12 @@ CoordMode, Mouse, Screen
 		if (paused = 1 and exited = 0){
 			pathpng := A_ScriptDir . acceptgr[5]
 			scale :=  "*w" . acceptgr[6] . " *h" . acceptgr[7]
-			ImageSearch , AcceptRiftX, AcceptRiftY, acceptgr[1], acceptgr[2], acceptgr[3], acceptgr[4], *50 %scale% %pathpng%
+			options := acceptgr[8]
+			ImageSearch , AcceptRiftX, AcceptRiftY, acceptgr[1], acceptgr[2], acceptgr[3], acceptgr[4], %options% %scale% %pathpng%
 			if(AcceptRiftX > 0){
 			  WriteLog("imagereader AcceptGr omni")		
 			  Loop, 200 {
-			  ImageSearch , AcceptRiftX, AcceptRiftY, acceptgr[1], acceptgr[2], acceptgr[3], acceptgr[4], *50 %scale% %pathpng%
+			  ImageSearch , AcceptRiftX, AcceptRiftY, acceptgr[1], acceptgr[2], acceptgr[3], acceptgr[4], %options% %scale% %pathpng%
 				  if (AcceptRiftX > 0){
 					c1 := acceptclick[1]
 					c2 := acceptclick[2]
