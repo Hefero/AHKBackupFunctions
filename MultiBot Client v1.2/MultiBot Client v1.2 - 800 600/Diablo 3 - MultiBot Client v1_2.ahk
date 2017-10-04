@@ -56,7 +56,7 @@ CoordMode, Mouse, Screen
 	
 	global teleport1 := [62 , 247,2]
 	global teleport2 := [170, 390,2]
-	global acceptclick := [961, 805,1]
+	global acceptclick := [961, 810,1]
 	global cancelbutton := [1061, 375,1]
 	global leavegamebutton := [291, 484,2]
 	global leavepartybutton := [1690, 900,2]
@@ -358,6 +358,7 @@ CoordMode, Mouse, Screen
 			global objkill := 0
 			global uiopened := 0
 			global uiclosed := 0
+			global StringSend := ""
 			global entered := 0
 			global wentback := 0
 			global completed := 0
