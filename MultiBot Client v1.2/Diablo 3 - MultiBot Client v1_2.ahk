@@ -307,6 +307,7 @@ CoordMode, Mouse, Screen
 			global talkingui := 0
 			global loading := 0
 			global objkill := 0
+			global StringSend := ""
 			global uiopened := 0
 			global uiclosed := 0
 			global entered := 0
