@@ -541,6 +541,7 @@ CoordMode, Mouse, Screen
 				didurshi := 1
 				talkingui := 1
 				bosskilled := 1
+				otherurshi := 1
 				gotourshi := 0
 				WriteLog("upgrade gem detected: send necro have urushi")
 				StringSend := "necro have urushi"
@@ -554,6 +555,7 @@ CoordMode, Mouse, Screen
 					{
 					GR := 0
 					LogLock := 1
+					otherurshi := 1
 					;;;ToolTip, Ui closed chatstep detected , 250 , 350, 3	
 					talkingui := 0				
 					WriteLog("urshi to dissa detected: send necro have and did urushi")
