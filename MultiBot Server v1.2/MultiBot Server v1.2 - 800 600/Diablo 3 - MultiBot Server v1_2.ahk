@@ -69,8 +69,7 @@ CoordMode, Mouse, Screen
 	;ConvertCoordinates(risenecro)
 	
 	global paused := 0
-	WriteLog("Start Script Executing")
-	
+	WriteLog("Start Script Executing")	
 	
 	Iniread, serverport, variables.ini, Settings, ServerPort
 	Iniread, logpath, variables.ini, Settings, LogPath
