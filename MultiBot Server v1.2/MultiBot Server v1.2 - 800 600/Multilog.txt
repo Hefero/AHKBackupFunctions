@@ -1,0 +1,279 @@
+2017-10-04(20h57m22sec) Start Script Executing p: 0
+2017-10-04(20h57m22sec) Server listening p: 0
+2017-10-04(20h57m27sec) Start Script Executing p: 0
+2017-10-04(20h57m28sec) Server listening p: 0
+2017-10-04(20h57m37sec) connection accepted p: 0
+2017-10-04(20h57m37sec) message received: testconnection p: 0
+2017-10-04(20h58m09sec) message received: beginsequence p: 0
+2017-10-04(20h58m09sec) received beginsequence: starting p: 0
+2017-10-04(20h58m09sec) starting rosb p: 0
+2017-10-04(20h58m10sec) gosub init p: 0
+2017-10-04(20h58m10sec) running init: starting timers p: 0
+2017-10-04(20h58m26sec) F6 from vendorloop p: 1
+2017-10-04(20h58m29sec) vendor loop done detected: send iamready p: 1
+2017-10-04(20h58m29sec) SendText: iamready p: 1
+2017-10-04(20h58m29sec) sent: iamready status: 9 p: 1
+2017-10-04(20h58m34sec) message received: acceptgr p: 1
+2017-10-04(20h58m34sec) acceptgr received: clicking cancel p: 1
+2017-10-04(20h58m35sec) accept found: clicked cancel p: 1
+2017-10-04(20h58m35sec) SendText: cancelgrift p: 1
+2017-10-04(20h58m35sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(20h58m35sec) accept found: sent cancelgrift p: 1
+2017-10-04(20h58m36sec) message received: start p: 1
+2017-10-04(20h58m36sec) start received p: 1
+2017-10-04(20h58m36sec) F6 start received:starting p: 0
+2017-10-04(20h58m54sec) riftacceptbutton chatstep p: 0
+2017-10-04(20h58m54sec) sending acceptgr p: 0
+2017-10-04(20h58m54sec) SendText: acceptgr p: 0
+2017-10-04(20h58m54sec) sent: acceptgr status: 9 p: 0
+2017-10-04(20h59m02sec) message received: riftacceptbutton p: 0
+2017-10-04(20h59m02sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-04(20h59m21sec) message received: go to menu p: 0
+2017-10-04(20h59m23sec) go to menu received: pause and leave p: 0
+2017-10-04(20h59m23sec) F6 pausing gosub p: 1
+2017-10-04(20h59m23sec) logout attempt p: 1
+2017-10-04(20h59m23sec) LEave game found: clicking leave game try:1 p: 1
+2017-10-04(20h59m35sec) LEave game found: clicking leave game and blocking input for 15 seconds p: 1
+2017-10-04(20h59m35sec) F6 unpausing: leave game detect imagereader and waited p: 0
+2017-10-04(20h59m39sec) imagereader leave game p: 0
+2017-10-04(20h59m39sec) SendText: imonmenu p: 0
+2017-10-04(20h59m39sec) sent: imonmenu status: 9 p: 0
+2017-10-04(20h59m39sec) running init: starting timers p: 0
+2017-10-04(20h59m39sec) focus diablo p: 0
+2017-10-04(21h00m17sec) F6 from vendorloop p: 1
+2017-10-04(21h00m20sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h00m20sec) SendText: iamready p: 1
+2017-10-04(21h00m20sec) sent: iamready status: 9 p: 1
+2017-10-04(21h00m21sec) message received: startros p: 1
+2017-10-04(21h00m21sec) start received p: 1
+2017-10-04(21h00m21sec) F6 start received:starting p: 0
+2017-10-04(21h00m21sec) startros received routine p: 0
+2017-10-04(21h00m21sec) running init: starting timers p: 0
+2017-10-04(21h00m23sec) startros received routine finished p: 0
+2017-10-04(21h00m24sec) F6 from vendorloop p: 1
+2017-10-04(21h00m27sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h00m27sec) SendText: iamready p: 1
+2017-10-04(21h00m27sec) sent: iamready status: 9 p: 1
+2017-10-04(21h00m27sec) message received: acceptgr p: 1
+2017-10-04(21h00m27sec) acceptgr received: clicking cancel p: 1
+2017-10-04(21h00m28sec) accept found: clicked cancel p: 1
+2017-10-04(21h00m28sec) SendText: cancelgrift p: 1
+2017-10-04(21h00m28sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(21h00m28sec) accept found: sent cancelgrift p: 1
+2017-10-04(21h00m30sec) message received: start p: 1
+2017-10-04(21h00m30sec) start received p: 1
+2017-10-04(21h00m30sec) F6 start received:starting p: 0
+2017-10-04(21h00m47sec) riftacceptbutton chatstep p: 0
+2017-10-04(21h00m47sec) sending acceptgr p: 0
+2017-10-04(21h00m47sec) SendText: acceptgr p: 0
+2017-10-04(21h00m47sec) sent: acceptgr status: 9 p: 0
+2017-10-04(21h00m54sec) message received: riftacceptbutton p: 0
+2017-10-04(21h00m54sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-04(21h01m14sec) message received: go to menu p: 0
+2017-10-04(21h01m15sec) go to menu received: pause and leave p: 0
+2017-10-04(21h01m15sec) F6 pausing gosub p: 1
+2017-10-04(21h01m15sec) logout attempt p: 1
+2017-10-04(21h01m15sec) LEave game found: clicking leave game try:1 p: 1
+2017-10-04(21h01m27sec) LEave game found: clicking leave game and blocking input for 15 seconds p: 1
+2017-10-04(21h01m27sec) F6 unpausing: leave game detect imagereader and waited p: 0
+2017-10-04(21h01m32sec) imagereader leave game p: 0
+2017-10-04(21h01m33sec) SendText: imonmenu p: 0
+2017-10-04(21h01m33sec) sent: imonmenu status: 9 p: 0
+2017-10-04(21h01m33sec) running init: starting timers p: 0
+2017-10-04(21h01m33sec) focus diablo p: 0
+2017-10-04(21h02m09sec) F6 from vendorloop p: 1
+2017-10-04(21h02m12sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h02m12sec) SendText: iamready p: 1
+2017-10-04(21h02m12sec) sent: iamready status: 9 p: 1
+2017-10-04(21h02m27sec) message received: acceptgr p: 1
+2017-10-04(21h02m27sec) acceptgr received: clicking cancel p: 1
+2017-10-04(21h02m28sec) accept found: clicked cancel p: 1
+2017-10-04(21h02m28sec) SendText: cancelgrift p: 1
+2017-10-04(21h02m28sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(21h02m28sec) accept found: sent cancelgrift p: 1
+2017-10-04(21h02m29sec) message received: start p: 1
+2017-10-04(21h02m29sec) start received p: 1
+2017-10-04(21h02m29sec) F6 start received:starting p: 0
+2017-10-04(21h02m42sec) riftacceptbutton chatstep p: 0
+2017-10-04(21h02m42sec) sending acceptgr p: 0
+2017-10-04(21h02m42sec) SendText: acceptgr p: 0
+2017-10-04(21h02m42sec) sent: acceptgr status: 9 p: 0
+2017-10-04(21h02m50sec) message received: riftacceptbutton p: 0
+2017-10-04(21h02m50sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-04(21h03m08sec) message received: go to menu p: 0
+2017-10-04(21h03m09sec) go to menu received: pause and leave p: 0
+2017-10-04(21h03m09sec) F6 pausing gosub p: 1
+2017-10-04(21h03m09sec) logout attempt p: 1
+2017-10-04(21h03m09sec) LEave game found: clicking leave game try:1 p: 1
+2017-10-04(21h03m21sec) LEave game found: clicking leave game and blocking input for 15 seconds p: 1
+2017-10-04(21h03m21sec) F6 unpausing: leave game detect imagereader and waited p: 0
+2017-10-04(21h03m26sec) imagereader leave game p: 0
+2017-10-04(21h03m26sec) SendText: imonmenu p: 0
+2017-10-04(21h03m26sec) sent: imonmenu status: 9 p: 0
+2017-10-04(21h03m26sec) running init: starting timers p: 0
+2017-10-04(21h03m26sec) focus diablo p: 0
+2017-10-04(21h04m00sec) F6 from vendorloop p: 1
+2017-10-04(21h04m03sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h04m03sec) SendText: iamready p: 1
+2017-10-04(21h04m03sec) sent: iamready status: 9 p: 1
+2017-10-04(21h04m16sec) message received: acceptgr p: 1
+2017-10-04(21h04m16sec) acceptgr received: clicking cancel p: 1
+2017-10-04(21h04m17sec) accept found: clicked cancel p: 1
+2017-10-04(21h04m17sec) SendText: cancelgrift p: 1
+2017-10-04(21h04m17sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(21h04m17sec) accept found: sent cancelgrift p: 1
+2017-10-04(21h04m18sec) message received: start p: 1
+2017-10-04(21h04m18sec) start received p: 1
+2017-10-04(21h04m18sec) F6 start received:starting p: 0
+2017-10-04(21h04m32sec) riftacceptbutton chatstep p: 0
+2017-10-04(21h04m32sec) sending acceptgr p: 0
+2017-10-04(21h04m32sec) SendText: acceptgr p: 0
+2017-10-04(21h04m32sec) sent: acceptgr status: 9 p: 0
+2017-10-04(21h04m39sec) message received: riftacceptbutton p: 0
+2017-10-04(21h04m39sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-04(21h09m17sec) message received: necro have urushi p: 0
+2017-10-04(21h09m17sec) necro have urushi received p: 0
+2017-10-04(21h09m17sec) F6 pausing p: 1
+2017-10-04(21h09m17sec) clicking teleport p: 1
+2017-10-04(21h09m23sec) F6 unpausing p: 0
+2017-10-04(21h09m23sec) necro have urushi routine finished p: 0
+2017-10-04(21h09m24sec) running urshi... detected: send dh have urushi p: 0
+2017-10-04(21h09m24sec) SendText: dh have urushi p: 0
+2017-10-04(21h09m24sec) sent: dh have urushi status: 15 p: 0
+2017-10-04(21h09m41sec) SendText: dh have urushi and dh did urshi p: 0
+2017-10-04(21h09m41sec) sent: dh have urushi and dh did urshi status: 32 p: 0
+2017-10-04(21h09m42sec) message received: necro have urushi and necro did urushi p: 0
+2017-10-04(21h09m42sec) necro did urushi received p: 0
+2017-10-04(21h10m42sec) F6 from vendorloop p: 1
+2017-10-04(21h10m45sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h10m45sec) SendText: iamready p: 1
+2017-10-04(21h10m45sec) sent: iamready status: 9 p: 1
+2017-10-04(21h11m07sec) message received: acceptgr p: 1
+2017-10-04(21h11m07sec) acceptgr received: clicking cancel p: 1
+2017-10-04(21h11m08sec) accept found: clicked cancel p: 1
+2017-10-04(21h11m08sec) SendText: cancelgrift p: 1
+2017-10-04(21h11m08sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(21h11m08sec) accept found: sent cancelgrift p: 1
+2017-10-04(21h11m10sec) message received: start p: 1
+2017-10-04(21h11m10sec) start received p: 1
+2017-10-04(21h11m10sec) F6 start received:starting p: 0
+2017-10-04(21h11m16sec) riftacceptbutton chatstep p: 0
+2017-10-04(21h11m16sec) sending acceptgr p: 0
+2017-10-04(21h11m16sec) SendText: acceptgr p: 0
+2017-10-04(21h11m16sec) sent: acceptgr status: 9 p: 0
+2017-10-04(21h11m23sec) message received: riftacceptbutton p: 0
+2017-10-04(21h11m23sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-04(21h11m26sec) message received: go to menu p: 0
+2017-10-04(21h11m27sec) go to menu received: pause and leave p: 0
+2017-10-04(21h11m27sec) F6 pausing gosub p: 1
+2017-10-04(21h11m27sec) logout attempt p: 1
+2017-10-04(21h11m27sec) LEave game found: clicking leave game try:1 p: 1
+2017-10-04(21h11m39sec) LEave game found: clicking leave game and blocking input for 15 seconds p: 1
+2017-10-04(21h11m39sec) F6 unpausing: leave game detect imagereader and waited p: 0
+2017-10-04(21h11m44sec) imagereader leave game p: 0
+2017-10-04(21h11m44sec) SendText: imonmenu p: 0
+2017-10-04(21h11m44sec) sent: imonmenu status: 9 p: 0
+2017-10-04(21h11m44sec) running init: starting timers p: 0
+2017-10-04(21h11m44sec) focus diablo p: 0
+2017-10-04(21h12m10sec) F6 from vendorloop p: 1
+2017-10-04(21h12m13sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h12m13sec) SendText: iamready p: 1
+2017-10-04(21h12m13sec) sent: iamready status: 9 p: 1
+2017-10-04(21h12m15sec) message received: startros p: 1
+2017-10-04(21h12m15sec) start received p: 1
+2017-10-04(21h12m15sec) F6 start received:starting p: 0
+2017-10-04(21h12m15sec) startros received routine p: 0
+2017-10-04(21h12m15sec) running init: starting timers p: 0
+2017-10-04(21h12m16sec) startros received routine finished p: 0
+2017-10-04(21h12m16sec) F6 from vendorloop p: 1
+2017-10-04(21h12m19sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h12m19sec) SendText: iamready p: 1
+2017-10-04(21h12m19sec) sent: iamready status: 9 p: 1
+2017-10-04(21h12m28sec) message received: acceptgr p: 1
+2017-10-04(21h12m28sec) acceptgr received: clicking cancel p: 1
+2017-10-04(21h12m29sec) accept found: clicked cancel p: 1
+2017-10-04(21h12m29sec) SendText: cancelgrift p: 1
+2017-10-04(21h12m29sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(21h12m29sec) accept found: sent cancelgrift p: 1
+2017-10-04(21h12m30sec) message received: start p: 1
+2017-10-04(21h12m30sec) start received p: 1
+2017-10-04(21h12m30sec) F6 start received:starting p: 0
+2017-10-04(21h12m36sec) riftacceptbutton chatstep p: 0
+2017-10-04(21h12m36sec) sending acceptgr p: 0
+2017-10-04(21h12m36sec) SendText: acceptgr p: 0
+2017-10-04(21h12m36sec) sent: acceptgr status: 9 p: 0
+2017-10-04(21h12m43sec) message received: riftacceptbutton p: 0
+2017-10-04(21h12m43sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-04(21h17m04sec) message received: go to menu p: 0
+2017-10-04(21h17m06sec) go to menu received: pause and leave p: 0
+2017-10-04(21h17m06sec) F6 pausing gosub p: 1
+2017-10-04(21h17m06sec) logout attempt p: 1
+2017-10-04(21h17m06sec) LEave game found: clicking leave game try:1 p: 1
+2017-10-04(21h17m18sec) LEave game found: clicking leave game and blocking input for 15 seconds p: 1
+2017-10-04(21h17m18sec) F6 unpausing: leave game detect imagereader and waited p: 0
+2017-10-04(21h17m22sec) imagereader leave game p: 0
+2017-10-04(21h17m22sec) SendText: imonmenu p: 0
+2017-10-04(21h17m22sec) sent: imonmenu status: 9 p: 0
+2017-10-04(21h17m22sec) running init: starting timers p: 0
+2017-10-04(21h17m22sec) focus diablo p: 0
+2017-10-04(21h17m57sec) F6 from vendorloop p: 1
+2017-10-04(21h18m00sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h18m00sec) SendText: iamready p: 1
+2017-10-04(21h18m00sec) sent: iamready status: 9 p: 1
+2017-10-04(21h18m03sec) message received: startros p: 1
+2017-10-04(21h18m03sec) start received p: 1
+2017-10-04(21h18m03sec) F6 start received:starting p: 0
+2017-10-04(21h18m03sec) startros received routine p: 0
+2017-10-04(21h18m03sec) running init: starting timers p: 0
+2017-10-04(21h18m04sec) startros received routine finished p: 0
+2017-10-04(21h18m04sec) F6 from vendorloop p: 1
+2017-10-04(21h18m07sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h18m07sec) SendText: iamready p: 1
+2017-10-04(21h18m07sec) sent: iamready status: 9 p: 1
+2017-10-04(21h18m15sec) message received: acceptgr p: 1
+2017-10-04(21h18m15sec) acceptgr received: clicking cancel p: 1
+2017-10-04(21h18m16sec) accept found: clicked cancel p: 1
+2017-10-04(21h18m16sec) SendText: cancelgrift p: 1
+2017-10-04(21h18m16sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(21h18m16sec) accept found: sent cancelgrift p: 1
+2017-10-04(21h18m17sec) message received: start p: 1
+2017-10-04(21h18m17sec) start received p: 1
+2017-10-04(21h18m17sec) F6 start received:starting p: 0
+2017-10-04(21h18m25sec) riftacceptbutton chatstep p: 0
+2017-10-04(21h18m25sec) sending acceptgr p: 0
+2017-10-04(21h18m25sec) SendText: acceptgr p: 0
+2017-10-04(21h18m25sec) sent: acceptgr status: 9 p: 0
+2017-10-04(21h18m32sec) message received: riftacceptbutton p: 0
+2017-10-04(21h18m32sec) riftacceptbutton received: but paused = 0 p: 0
+2017-10-04(21h22m40sec) running urshi... detected: send dh have urushi p: 0
+2017-10-04(21h22m40sec) SendText: dh have urushi p: 0
+2017-10-04(21h22m40sec) sent: dh have urushi status: 15 p: 0
+2017-10-04(21h22m40sec) message received: necro have urushi p: 0
+2017-10-04(21h22m54sec) message received: necro have urushi and necro did urushi p: 0
+2017-10-04(21h22m55sec) necro did urushi received p: 0
+2017-10-04(21h23m01sec) SendText: dh have urushi and dh did urshi p: 0
+2017-10-04(21h23m01sec) sent: dh have urushi and dh did urshi status: 32 p: 0
+2017-10-04(21h23m59sec) message received: startros p: 0
+2017-10-04(21h23m59sec) start received p: 0
+2017-10-04(21h23m59sec) startros received routine p: 0
+2017-10-04(21h23m59sec) running init: starting timers p: 0
+2017-10-04(21h24m00sec) startros received routine finished p: 0
+2017-10-04(21h24m17sec) F6 from vendorloop p: 1
+2017-10-04(21h24m20sec) vendor loop done detected: send iamready p: 1
+2017-10-04(21h24m20sec) SendText: iamready p: 1
+2017-10-04(21h24m20sec) sent: iamready status: 9 p: 1
+2017-10-04(21h24m34sec) message received: acceptgr p: 1
+2017-10-04(21h24m34sec) acceptgr received: clicking cancel p: 1
+2017-10-04(21h24m35sec) accept found: clicked cancel p: 1
+2017-10-04(21h24m35sec) SendText: cancelgrift p: 1
+2017-10-04(21h24m35sec) sent: cancelgrift status: 12 p: 1
+2017-10-04(21h24m35sec) accept found: sent cancelgrift p: 1
+2017-10-04(21h24m36sec) message received: start p: 1
+2017-10-04(21h24m36sec) start received p: 1
+2017-10-04(21h24m36sec) F6 start received:starting p: 0
+2017-10-04(21h24m41sec) riftacceptbutton chatstep p: 0
+2017-10-04(21h24m41sec) sending acceptgr p: 0
+2017-10-04(21h24m41sec) SendText: acceptgr p: 0
+2017-10-04(21h24m41sec) sent: acceptgr status: 9 p: 0
+2017-10-04(21h24m48sec) message received: riftacceptbutton p: 0
+2017-10-04(21h24m48sec) riftacceptbutton received: but paused = 0 p: 0

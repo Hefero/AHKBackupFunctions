@@ -257,7 +257,7 @@ CoordMode, Mouse, Screen
 		{
 			Gosub, FocusDiablo	
 			WriteLog("Cancel Grift received: clicking it")
-			Sleep 1000
+			Sleep 500
 			c1 := cancelbutton[1]
 			c2 := cancelbutton[2]
 			Click %c1% , %c2%	
@@ -272,7 +272,7 @@ CoordMode, Mouse, Screen
 		
 		IfInString, controlText, acceptgr
 		{
-					Sleep 1000
+					Sleep 500
 					c1 := acceptclick[1]
 					c2 := acceptclick[2]
 					Click %c1% , %c2%

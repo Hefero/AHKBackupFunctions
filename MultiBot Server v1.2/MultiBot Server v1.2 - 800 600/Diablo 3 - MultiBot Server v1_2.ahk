@@ -441,7 +441,7 @@ CoordMode, Mouse, Screen
 		IfInString, controlText, acceptgr
 		{
 			WriteLog("acceptgr received: clicking cancel")
-			Sleep 1000
+			Sleep 500
 			c1 := cancelgriftbutton[1]
 			c2 := cancelgriftbutton[2]
 			Click %c1% , %c2%    
