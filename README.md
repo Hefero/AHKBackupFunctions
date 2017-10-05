@@ -7,13 +7,13 @@ Server needs to run as admin and run after rosbot process is up (dont start the 
 and choose a port number, then click update
 
 2nd, run the Client:
-Client Needs to be party leader and then connect to Server IP and Port, then 
+Client Needs to connect to Server IP and Port, then 
 just start RosBot GR sequence
 
 
 LogPath is the path to logs.txt from rosbot documents
 
-you need to go to game options on both, put resolution to fullscreen 800x600, and then change back to windowed (fullscreen)
+you may need to go to game options, put resolution to fullscreen 800x600, and then change back to windowed (fullscreen)
 
 Both need OpenGreaterRift to yes, but Server will determine the level,
 the Client only accepts
