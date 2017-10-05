@@ -157,6 +157,7 @@ CoordMode, Mouse, Screen
 					Sleep 5000
 					Gosub, dounpause
 					WriteLog("DH have urushi routine finished")
+					otherurshi := 1
 			}
 		}	
 		IfInString, controlText, start
@@ -523,6 +524,7 @@ CoordMode, Mouse, Screen
 				talkingui := 1
 				bosskilled := 1
 				gotourshi := 0
+				otherurshi := 1
 				StringSend := "necro have urushi"
 				Gosub, SenderText
 				WriteLog("running urshi... detected: send necro have urushi")
