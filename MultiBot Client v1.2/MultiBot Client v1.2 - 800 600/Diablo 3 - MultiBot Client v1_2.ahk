@@ -264,7 +264,8 @@ CoordMode, Mouse, Screen
 			failed1 := 0
 			receivedfailed := 0		
 			Gosub, dopause
-			WriteLog("F6 pausing cancelbutton")						
+			WriteLog("F6 pausing cancelbutton")
+			Sleep 1500
 			StringSend := "start"
 			Gosub, SenderText
 		}
@@ -629,7 +630,6 @@ CoordMode, Mouse, Screen
 	IfInString, chatstep, vendor loop done	
 	{
 		accept := 1
-		GR := 0
 		if (otherurshi = 1){		
 			LogLock := 1
 			WriteLog("Vendor loop done and otherurshi =1")
