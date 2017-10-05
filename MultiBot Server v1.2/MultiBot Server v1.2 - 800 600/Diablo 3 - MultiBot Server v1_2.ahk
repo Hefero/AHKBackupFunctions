@@ -545,31 +545,6 @@ CoordMode, Mouse, Screen
 	
 	imagereader:
 		Thread, Interrupt, 0
-	;;menu start
-		;if (failed1 = 1 and talkenter = 1)
-		;{
-		;	pathpng := A_ScriptDir . menu_start_disabled[5]
-		;	scale :=  "*w" . menu_start_disabled[6] . " *h" . menu_start_disabled[7]
-		;	options := menu_start_disabled[8]
-		;	ImageSearch , MenuDisabledX, MenuDisabledY, menu_start_disabled[1], menu_start_disabled[2], menu_start_disabled[3], menu_start_disabled[4], %options% %scale% %pathpng%
-		;	if(MenuDisabledX > 0){				
-		;	;	if (paused = 1){			
-		;	;		paused := 0
-		;	;		SendInput, {F6}	
-		;	;		WriteLog("F6 unpausing: leave game detect imagereader")
-		;	;	}					
-		;	;	Sleep 5500
-		;	;	Gosub, DoUnBlockInput
-		;	;	WriteLog("imagereader menu disabled")
-		;	;	StringSend := "imonmenu"
-		;	;	Gosub, SenderText
-		;	;	talkenter := 0
-		;	;	Gosub, initial
-		;	}
-;
-		;}
-	
-	
 	
 		;;rift complete
 		if (didurshi =1){
@@ -589,76 +564,6 @@ CoordMode, Mouse, Screen
 			}
 		}
 		
-		;;accept found:do cancel
-			;if (paused =1){
-			;	pathpng := A_ScriptDir . acceptgr[5]
-			;	scale :=  "*w" . acceptgr[6] . " *h" . acceptgr[7]
-			;	options := acceptgr[8]
-			;	ImageSearch , AcceptRiftX, AcceptRiftY, acceptgr[1], acceptgr[2], acceptgr[3], acceptgr[4], %options% %scale% %pathpng%
-			;    if (AcceptRiftX > 0){
-			;		 WriteLog("accept found: trying to click cancel")
-			;		 Loop, 500 {
-			;		 ImageSearch , AcceptRiftX, AcceptRiftY, acceptgr[1], acceptgr[2], acceptgr[3], acceptgr[4], %options% %scale% %pathpng%
-			;			if (AcceptRiftX > 0){
-			;				c1 := cancelgriftbutton[1]
-			;				c2 := cancelgriftbutton[2]
-			;				Click %c1% , %c2%    
-			;				WriteLog("accept found: clicked cancel")
-			;				Sleep 50
-			;				Break
-			;			}
-			;	    }
-			;	}
-			;}
-		
-		
-	;;riftacceptbutton (open ui - to go rift)
-   
-		;if (GR = 0){
-		;	pathpng := A_ScriptDir . riftopen[5]
-		;	scale :=  "*w" . riftopen[6] . " *h" . riftopen[7]
-		;	ImageSearch , RiftOpenX, RiftOpenY, riftopen[1], riftopen[2], riftopen[3], riftopen[4], *50 %scale% %pathpng%
-		;    if (RiftOpenX > 0){
-		;		WriteLog("riftacceptbutton imagesearch")
-		;		GR := 1
-		;		idled := 0
-		;		accept := 1
-		;	}
-		;}
-	   
-   
-   ;;cancel omni
-    if(paused = 1 and exited = 0){
-		pathpng := A_ScriptDir . cancelgrift[5]
-		scale :=  "*w" . cancelgrift[6] . " *h" . cancelgrift[7]
-		ImageSearch , CancelGRiftX, CancelGRiftY, cancelgrift[1], cancelgrift[2], cancelgrift[3], cancelgrift[4], *25 %scale% %pathpng%
-		if (CancelGRiftX > 0){
-			Loop, 500 {   
-				if (CancelGRiftX > 0){
-					Gosub, FocusDiablo            
-					WriteLog("Cancel Grift found imagereader: clicking it")
-					c1 := cancelbutton[1]
-					c2 := cancelbutton[2]
-					Click %c1% , %c2%        
-					Break
-				}
-		    }
-	    }
-		;if (blockedinput = 1 and failed1 = 1) {
-		;	pathpng := A_ScriptDir . logoutonmenu[5]
-		;	scale :=  "*w" . logoutonmenu[6] . " *h" . logoutonmenu[7]
-		;	ImageSearch , MenuCreditsEX, MenuCreditsEY, logoutonmenu[1], logoutonmenu[2], logoutonmenu[3], logoutonmenu[4], *50 %scale% %pathpng%				
-		;	if(MenuCreditsEX > 0){		
-		;		WriteLog("imagereader logout on esc")
-		;		Gosub, DoUnBlockInput
-		;		Sleep 500
-		;		SendInput, {Esc}			
-		;		Gosub, DoBlockInput
-		;		Sleep 1000
-		;	}
-		;}
-    }
-   
    
 	;disconnected or timedout - ok - 
 	if (blockedinput = 1 and failed1 = 1){
@@ -677,22 +582,6 @@ CoordMode, Mouse, Screen
 		}
 	}
 	 
-	;risenecro - ok - 
-	;if (blockedinput = 1 and failed1 = 1){
-	;	pathpng := A_ScriptDir . risenecro[5]
-	;	scale :=  "*w" . risenecro[6] . " *h" . risenecro[7]
-	;	options := risenecro[8]
-	;	ImageSearch , risenecroX, risenecroY, risenecro[1], risenecro[2], risenecro[3], risenecro[4], %options% %scale% %pathpng%
-	;	if(risenecroX > 0){
-	;		WriteLog("imagereader risenecro")
-	;		Gosub, DoUnBlockInput
-	;		Sleep 500
-	;		c1 := risenecrobutton[1]
-	;		c2 := risenecrobutton[2]
-	;		Click %c1% , %c2%
-	;		Gosub, DoBlockInput
-	;	}
-	;}
 	return
 	
 	str_getTail(_Str, _LineNum = 1)
