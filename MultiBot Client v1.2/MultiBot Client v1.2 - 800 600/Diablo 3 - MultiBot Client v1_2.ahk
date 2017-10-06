@@ -602,10 +602,10 @@ CoordMode, Mouse, Screen
 
 	IfInString, chatstep, Runstep ended: CemeteryOfTheForsaken_XpPools
 	{
-		chatstep := "next rift in different"
-		failed1 := 0 
-		receivedfailed := 0
-		exited := 0
+			StringSend := "go to menu"
+			Gosub, SenderText
+			Sleep 5000
+			init()
 	}
 
 	;;menu detector (failed)
