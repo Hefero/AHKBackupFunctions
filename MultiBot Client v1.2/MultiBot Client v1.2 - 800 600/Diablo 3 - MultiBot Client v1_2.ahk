@@ -804,8 +804,7 @@ CoordMode, Mouse, Screen
 				exited := 1
 				doleave := 0
 				imonmenu := 1
-				WriteLog("LEave game found: clicking leave game and blocking input")
-				Break
+				WriteLog("LEave game found: clicking leave game and blocking input")				
 				Sleep 10000
 				WriteLog("Slep 10s now unpausing F6")
 				gosub, dounpause				
@@ -816,6 +815,7 @@ CoordMode, Mouse, Screen
 				WriteLog("goint to init variables")
 				init()
 				WriteLog("leavegame routine finished")
+				Break
 			}
 			Sleep 200
 		}
