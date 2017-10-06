@@ -392,6 +392,7 @@ CoordMode, Mouse, Screen
 			global idledtries := 0
 			global blockedinput := 0
 			global foundpool := 0
+			global endedpool := 0
 			
 			global StringSend := "StringSend Initialized"
 			WriteLog("start button pressed")
@@ -518,6 +519,7 @@ CoordMode, Mouse, Screen
 		global idledtries := 0
 		global blockedinput := 0
 		global foundpool := 0
+		global endedpool := 0
 		SetTimer, imagereader, 1 ,1
 		SetTimer, logreader, 1,2
 	}
@@ -602,10 +604,13 @@ CoordMode, Mouse, Screen
 
 	IfInString, chatstep, Runstep ended: CemeteryOfTheForsaken_XpPools
 	{
-			StringSend := "go to menu"
-			Gosub, SenderText
-			Sleep 5000
-			init()
+		if (endedpool = 0){
+			    endedpool := 1
+				StringSend := "go to menu"
+				Gosub, SenderText
+				Sleep 5000
+				init()
+			}
 	}
 
 	;;menu detector (failed)
