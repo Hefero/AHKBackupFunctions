@@ -5,7 +5,6 @@
 #HotkeyInterval 99000000
 #KeyHistory 0
 ListLines Off
-Process, Priority, , A
 SetBatchLines, -1
 SetKeyDelay, -1, -1
 SetMouseDelay, -1
@@ -393,8 +392,8 @@ CoordMode, Mouse, Screen
 			GuiControl, Text, logtext, %logtextapp%`nConnecting
 			if (testconn > 5){
 				WriteLog("starting timers")
-				SetTimer, imagereader, 1 ,1
-				SetTimer, logreader, 1,2	
+				SetTimer, imagereader, 40 ,1
+				SetTimer, logreader, 40,2	
 				;SetTimer, pingconnection, 30000			
 				SetTimer, idlewatcher, 30000
 				
@@ -629,6 +628,11 @@ CoordMode, Mouse, Screen
 			StringSend := "acceptgr"
 			Gosub, SenderText
 		}
+	}
+	
+	IfInString, chatstep, g_Portal_Rectangle_Orange
+	{
+		GR := 0
 	}
 
 	IfInString, chatstep, vendor loop done	
