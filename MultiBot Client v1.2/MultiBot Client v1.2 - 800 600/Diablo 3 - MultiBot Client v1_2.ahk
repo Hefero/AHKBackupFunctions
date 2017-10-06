@@ -603,6 +603,9 @@ CoordMode, Mouse, Screen
 	IfInString, chatstep, Switching from CemeteryOfTheForsaken_XpPools to TownNav
 	{
 		chatstep := "next rift in different"
+		failed1 := 0 
+		receivedfailed := 0
+		exited := 0
 	}
 
 	;;menu detector (failed)
