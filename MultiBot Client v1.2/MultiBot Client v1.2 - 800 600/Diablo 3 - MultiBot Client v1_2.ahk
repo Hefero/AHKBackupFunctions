@@ -600,7 +600,7 @@ CoordMode, Mouse, Screen
 		Sleep 2000
 	}
 
-	IfInString, chatstep, Switching from CemeteryOfTheForsaken_XpPools to TownNav
+	IfInString, chatstep, Runstep ended: CemeteryOfTheForsaken_XpPools
 	{
 		chatstep := "next rift in different"
 		failed1 := 0 
