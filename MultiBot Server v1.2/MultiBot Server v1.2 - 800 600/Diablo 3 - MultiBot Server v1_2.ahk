@@ -534,7 +534,6 @@ CoordMode, Mouse, Screen
 		global interactUi := 0
 		global blockedinput := 0
 		global foundpool := 0
-		global endedpool := 0
 		WriteLog("running init: starting timers")
 		
 		SetTimer, imagereader, 40,1
@@ -713,6 +712,7 @@ CoordMode, Mouse, Screen
 	IfInString, chatstep, vendor loop done
 	{			
 		receivedfailed := 0
+		endedpool := 0
 		if (pausestart = 1 and paused = 0 and GR = 0){
 			LogLock := 1	
 			pausestart := 0					
@@ -749,7 +749,7 @@ CoordMode, Mouse, Screen
 	
 	IfInString, chatstep, Runstep ended: CemeteryOfTheForsaken_XpPools
 	{
-		if (endedpool = 0) {
+		if (endedpool != 1) {
 			endedpool := 1
 			StringSend := "failure"	
 			Gosub, SenderText

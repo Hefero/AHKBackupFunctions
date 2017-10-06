@@ -519,7 +519,6 @@ CoordMode, Mouse, Screen
 		global idledtries := 0
 		global blockedinput := 0
 		global foundpool := 0
-		global endedpool := 0
 		SetTimer, imagereader, 1 ,1
 		SetTimer, logreader, 1,2
 	}
@@ -604,7 +603,7 @@ CoordMode, Mouse, Screen
 
 	IfInString, chatstep, Runstep ended: CemeteryOfTheForsaken_XpPools
 	{
-		if (endedpool = 0){
+		if (endedpool != 1){
 			    endedpool := 1
 				StringSend := "go to menu"
 				Gosub, SenderText
@@ -688,6 +687,7 @@ CoordMode, Mouse, Screen
 	IfInString, chatstep, vendor loop done	
 	{
 		accept := 1
+		endedpool := 0
 		if (otherurshi = 1){		
 			LogLock := 1
 			WriteLog("Vendor loop done and otherurshi =1")
