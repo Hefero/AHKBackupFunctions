@@ -749,14 +749,13 @@ CoordMode, Mouse, Screen
 	
 	IfInString, chatstep, Runstep ended: CemeteryOfTheForsaken_XpPools
 	{
-		if (endedpool = 0){
+		if (endedpool = 0) {
 			endedpool := 1
 			StringSend := "failure"	
 			Gosub, SenderText
 			Sleep 5000			
 			Gosub, initial
-		{
-			
+		}
 	}
 	
 	IfInString, chatstep, next rift in different
