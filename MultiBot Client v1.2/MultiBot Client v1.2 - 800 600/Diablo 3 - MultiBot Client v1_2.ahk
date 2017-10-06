@@ -48,8 +48,6 @@ CoordMode, Mouse, Screen
 	
 	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	
-	;global risenecro := [1422, 971, 1664, 1027, "\pngs\risenecro.png", 171,18 , "*30 *TransBlack",3]
-	
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
 	
 	
@@ -61,7 +59,6 @@ CoordMode, Mouse, Screen
 	global leavepartybutton := [1690, 900,2]
 	global leaveparty2button := [860, 660,2]
 	global disconnectedbutton := [ 962 , 661,1 ]
-	;global risenecrobutton := [ 1540 , 990,3 ]
 	
 	ConvertClick(teleport1)
 	ConvertClick(teleport2)
@@ -71,7 +68,6 @@ CoordMode, Mouse, Screen
 	ConvertClick(leavepartybutton)
 	ConvertClick(leaveparty2button)
 	ConvertClick(disconnectedbutton)
-	;ConvertClick(risenecrobutton)
 	
 	
 	ConvertCoordinates(grcomplete)
@@ -84,10 +80,10 @@ CoordMode, Mouse, Screen
 	ConvertCoordinates(leavegame)
 	ConvertCoordinates(leaveparty)
 	ConvertCoordinates(leaveparty2)
-	;ConvertCoordinates(risenecro)
 	
 	
 	WriteLog("Script Execution started")
+	
 	;Client
 
 	WriteLog("Starting GUI")
@@ -110,9 +106,6 @@ CoordMode, Mouse, Screen
 	OnTCPDisconnect(this)
 	{
 		WriteLog("TCP DIsconnected")
-	;	global myClient := new SocketTCP()
-	;	myClient.connect("192.168.1.7",54322)
-	;	myClient.onRecv := func("OnTCPRecv")
 	}
 	
 	
@@ -814,11 +807,15 @@ CoordMode, Mouse, Screen
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Break
 				Sleep 10000
+				WriteLog("Slep 10s now unpausing F6")
 				gosub, dounpause				
 				Sleep 500
+				WriteLog("gosub dounblock from leavegame")
 				Gosub, DoUnBlockInput
 				Sleep 500
+				WriteLog("goint to init variables")
 				init()
+				WriteLog("leavegame routine finished")
 			}
 			Sleep 200
 		}
