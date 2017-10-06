@@ -194,7 +194,9 @@ CoordMode, Mouse, Screen
 
 	OnTCPRecv(this)
 	{
-		Thread, NoTimers, true
+		Thread, Interrupt, -1
+		 
+		 
 		global controlText := this.recvText()	
 		IfNotInString, controlText, ping
 		{
@@ -464,9 +466,6 @@ CoordMode, Mouse, Screen
 				Sleep 13500
 				SendInput, {t}
 		}
-		
-		
-		Thread, NoTimers, false
 	}
 	
 	pingchecker:
@@ -925,7 +924,10 @@ CoordMode, Mouse, Screen
 					WriteLog("F6 unpausing: leave game detect imagereader and waited")
 				}					
 				Sleep 4500
+				Gosub, dounpause				
+				Sleep 500
 				Gosub, DoUnBlockInput
+				Sleep 500
 				WriteLog("imagereader leave game")
 				StringSend := "imonmenu"
 				Gosub, SenderText

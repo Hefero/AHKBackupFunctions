@@ -118,7 +118,6 @@ CoordMode, Mouse, Screen
 	
 	OnTCPRecv(this)
 	{
-		Thread, NoTimers, true
 		Thread, Interrupt, -1
 	
 		controlText := this.recvText()
@@ -320,8 +319,6 @@ CoordMode, Mouse, Screen
 				Sleep 13500
 				SendInput, {t}
 		}
-		
-		Thread, NoTimers, false
 	}
 	
 	pingconnection:
@@ -817,8 +814,10 @@ CoordMode, Mouse, Screen
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Break
 				Sleep 10000
+				gosub, dounpause				
+				Sleep 500
 				Gosub, DoUnBlockInput
-				gosub, dounpause
+				Sleep 500
 				init()
 			}
 			Sleep 200
