@@ -816,6 +816,10 @@ CoordMode, Mouse, Screen
 				imonmenu := 1
 				WriteLog("LEave game found: clicking leave game and blocking input")
 				Break
+				Sleep 10000
+				Gosub, DoUnBlockInput
+				gosub, dounpause
+				init()
 			}
 			Sleep 200
 		}
