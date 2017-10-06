@@ -303,6 +303,24 @@ CoordMode, Mouse, Screen
 					WriteLog("F6 start just sent, now unpausing")
 		}
 		
+		
+	IfInString, controlText, foundpool
+			{	
+				WriteLog("going to pool")
+				Gosub, dopause
+				Sleep 500
+				c1 := teleport1[1]
+				c2 := teleport1[2]
+				WriteLog("clicking teleport")
+				Sleep 50					
+				Send {Click right %c1%, %c2%}
+				Sleep 100
+				c1 := teleport2[1]
+				c2 := teleport2[2]
+				Sleep 50
+				Send {click %c1% , %c2%}
+		}
+		
 		Thread, NoTimers, false
 	}
 	
@@ -373,6 +391,7 @@ CoordMode, Mouse, Screen
 			global idled := 0	
 			global idledtries := 0
 			global blockedinput := 0
+			global foundpool := 0
 			
 			global StringSend := "StringSend Initialized"
 			WriteLog("start button pressed")
@@ -498,7 +517,7 @@ CoordMode, Mouse, Screen
 		global idled := 0
 		global idledtries := 0
 		global blockedinput := 0
-		
+		global foundpool := 0
 		SetTimer, imagereader, 1 ,1
 		SetTimer, logreader, 1,2
 	}
@@ -562,6 +581,29 @@ CoordMode, Mouse, Screen
 					Gosub, SenderText
 			}
 		}
+
+	IfInString, chatstep, PoolOfReflection
+	{
+		if (foundpool = 0){
+			Gosub, DoBlockInput
+			StringSend := "foundpool"
+			Gosub, SenderText
+			Sleep 10000			
+			Gosub, DoUnBlockInput
+			foundpool := 1
+		}
+	}
+
+	IfInString, chatstep, Launching TP
+	{
+		foundpool := 0
+		Sleep 2000
+	}
+
+	IfInString, chatstep, Switching from CemeteryOfTheForsaken_XpPools to TownNav
+	{
+		chatstep := "next rift in different"
+	}
 
 	;;menu detector (failed)
 	
