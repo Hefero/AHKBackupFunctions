@@ -464,6 +464,8 @@ CoordMode, Mouse, Screen
 				c2 := teleport2[2]
 				Sleep 50
 				Send {click %c1% , %c2%}
+				Sleep 13500
+				SendInput, {t}
 		}
 		
 		
