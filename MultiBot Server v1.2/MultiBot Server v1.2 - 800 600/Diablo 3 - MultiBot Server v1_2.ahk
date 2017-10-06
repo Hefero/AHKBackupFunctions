@@ -465,7 +465,7 @@ CoordMode, Mouse, Screen
 				Sleep 50
 				Send {click %c1% , %c2%}
 				Sleep 13500
-				SendInput, {T}
+				SendInput, {t}
 		}
 		
 		
