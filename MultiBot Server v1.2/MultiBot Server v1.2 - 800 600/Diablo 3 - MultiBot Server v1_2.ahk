@@ -209,15 +209,13 @@ CoordMode, Mouse, Screen
 		
 	   IfInString, controlText, go to menu
 	   {
-	    
-		if (exited = 0 and receivedfailed = 0){
 			gosub, DoBlockInput
 			failed1 := 1
 			receivedfailed := 1
 			SendInput, {F4 down}
- 			Sleep 100
+			Sleep 100
 			SendInput, {F4 up}
- 			Sleep 1000
+			Sleep 1000
 			WriteLog("go to menu received: pause and leave")
 			exited := 1
 			chatstep := "blank"
@@ -227,7 +225,6 @@ CoordMode, Mouse, Screen
 			 Gosub, LeaveGame
 			 WriteLog("focus diablo")
 			 Gosub, FocusDiablo
-		 }
 	   }
 
 	   	IfInString, controlText, pause

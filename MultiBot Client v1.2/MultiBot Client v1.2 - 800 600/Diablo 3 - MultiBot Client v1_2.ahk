@@ -214,24 +214,22 @@ CoordMode, Mouse, Screen
 		}
 		
 		IfInString, controlText, failure
-		{	
-			if (receivedfailed = 0 and exited = 0){
-				gosub, DoBlockInput
-				receivedfailed := 1						
-				chatstep := "blank"		
-				SendInput, {F4 down}
- 				Sleep 100
- 				SendInput, {F4 up}
- 				Sleep 1000
-				Gosub, dopause			
-				WinActivate, Diablo III
-				failed1 := 1				
-				WriteLog("logout attempt")		
-				Gosub, LeaveGame
-				Gosub, FocusDiablo
-				WriteLog("focus diablo")
-				Gosub, FocusDiablo
-			}
+		{
+			gosub, DoBlockInput
+			receivedfailed := 1						
+			chatstep := "blank"		
+			SendInput, {F4 down}
+			Sleep 100
+			SendInput, {F4 up}
+			Sleep 1000
+			Gosub, dopause			
+			WinActivate, Diablo III
+			failed1 := 1				
+			WriteLog("logout attempt")		
+			Gosub, LeaveGame
+			Gosub, FocusDiablo
+			WriteLog("focus diablo")
+			Gosub, FocusDiablo
 		}
 		
 		IfInString, controlText, imonmenu
