@@ -5,7 +5,6 @@
 #HotkeyInterval 99000000
 #KeyHistory 0
 ListLines Off
-Process, Priority, , A
 SetBatchLines, -1
 SetKeyDelay, -1, -1
 SetMouseDelay, -1
@@ -518,10 +517,10 @@ CoordMode, Mouse, Screen
 		global blockedinput := 0
 		WriteLog("running init: starting timers")
 		
-		SetTimer, imagereader, 1,1
-		SetTimer, logreader, 1,2
+		SetTimer, imagereader, 40,1
+		SetTimer, logreader, 40,2
 		SetTimer, idlewatcher, 30000
-		SetTimer, pingchecker, 30000
+		;SetTimer, pingchecker, 30000
 
 	return
 
@@ -773,6 +772,11 @@ CoordMode, Mouse, Screen
 		}
 	}
 
+	IfInString, chatstep, g_Portal_Rectangle_Orange
+	{	
+		GR := 0
+	}
+	
 	LogLock := 0
 	
 	return
