@@ -693,9 +693,9 @@ CoordMode, Mouse, Screen
 			otherurshi := 0
 			if(beginsequence = 0){
 				Sleep 3000
-				StringSend :=  "startros"
+				StringSend :=  "start"
 				Gosub, SenderText			
-				WriteLog("sent startros from vendorloop done")
+				WriteLog("sent start from vendorloop done")
 			}
 		}	
 		if(beginsequence = 1){
