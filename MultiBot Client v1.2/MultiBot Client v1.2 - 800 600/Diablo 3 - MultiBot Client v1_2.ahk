@@ -228,7 +228,7 @@ CoordMode, Mouse, Screen
 		
 		IfInString, controlText, imonmenu
 		{		
-			Sleep 7000
+			Sleep 9500
 			otheronmenu := 1
 			WriteLog("imonmenu received")
 			if (imonmenu = 1){						
