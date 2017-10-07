@@ -111,6 +111,7 @@ CoordMode, Mouse, Screen
 	
 	OnTCPRecv(this)
 	{
+		Thread, NoTimers, True
 		Thread, Interrupt, -1
 	
 		controlText := this.recvText()
@@ -313,6 +314,7 @@ CoordMode, Mouse, Screen
 				Sleep 13500
 				SendInput, {t}
 		}
+		Thread, NoTimers, False
 	}
 	
 	pingconnection:

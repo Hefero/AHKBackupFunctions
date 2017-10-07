@@ -194,8 +194,8 @@ CoordMode, Mouse, Screen
 
 	OnTCPRecv(this)
 	{
-		Thread, Interrupt, -1
-		 
+		Thread, NoTimers, True
+		Thread, Interrupt, -1		 
 		 
 		global controlText := this.recvText()	
 		IfNotInString, controlText, ping
@@ -465,6 +465,7 @@ CoordMode, Mouse, Screen
 				Sleep 13500
 				SendInput, {t}
 		}
+		Thread, NoTimers, False
 	}
 	
 	pingchecker:
