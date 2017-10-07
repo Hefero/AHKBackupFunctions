@@ -1051,6 +1051,7 @@ CoordMode, Mouse, Screen
 	return
 
 	SenderText:
+		Thread, NoTimers, True
 	   WriteLog("SendText: " StringSend)
 	   sent := myClient.sendText(StringSend)
 	   if (sent > 0)
@@ -1072,6 +1073,7 @@ CoordMode, Mouse, Screen
 		   WriteLog("retry send FAILED: " StringSend " retries: " a_index "status: " sent)
 		 }
 		}
+		Thread, NoTimers, False
    return
    
     DoBlockInput:
@@ -1150,6 +1152,7 @@ CoordMode, Mouse, Screen
 	}
 	
 	dopause:
+	Thread, NoTimers, True
 		if (paused = 0){
 			paused := 1
 			SendInput, {F6 down}
@@ -1157,9 +1160,11 @@ CoordMode, Mouse, Screen
 			SendInput, {F6 up}
 			WriteLog("F6 pausing gosub")
 		}
+	Thread, NoTimers, False
 	return
 	
 	dounpause:
+	Thread, NoTimers, True
 		if (paused = 1){
 			paused := 0
 			SendInput, {F6 down}
@@ -1167,4 +1172,5 @@ CoordMode, Mouse, Screen
 			SendInput, {F6 up}
 			WriteLog("F6 pausing gosub")
 		}
+	Thread, NoTimers, False
 	return
