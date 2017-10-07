@@ -930,7 +930,6 @@ CoordMode, Mouse, Screen
 	return
 	
 	SenderText:
-		Thread, NoTimers, True
 	   WriteLog("SendText: " StringSend)
 		sent := myClient.sendText(StringSend)
 	   if (sent > 0)
@@ -940,6 +939,7 @@ CoordMode, Mouse, Screen
 	   else
 	   {
 		  Loop, 35 {
+				myClient.connect(serverip,serverport)
 			 Sleep 200
 			 WriteLog("send retrying: " StringSend " retry attempt: " a_index "status: " sent)               
 			 sent := myClient.sendText(StringSend)
@@ -952,7 +952,6 @@ CoordMode, Mouse, Screen
 			 WriteLog("retry send FAILED: " StringSend " retries: " a_index "status: " sent)
 		  }
 	    }
-		Thread, NoTimers, False
 	   return
 	 
 	 DoBlockInput:
