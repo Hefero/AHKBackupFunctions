@@ -924,10 +924,7 @@ CoordMode, Mouse, Screen
 					WriteLog("F6 unpausing: leave game detect imagereader and waited")
 				}					
 				Sleep 4500
-				Gosub, dounpause				
-				Sleep 500
 				Gosub, DoUnBlockInput
-				Sleep 500
 				WriteLog("imagereader leave game")
 				StringSend := "imonmenu"
 				Gosub, SenderText
@@ -948,7 +945,6 @@ CoordMode, Mouse, Screen
 		}
 	return
 		
-	return
 
 	CancelGRift:
 		Sleep 100
