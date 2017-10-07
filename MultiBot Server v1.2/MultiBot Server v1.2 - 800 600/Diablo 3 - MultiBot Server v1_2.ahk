@@ -810,6 +810,7 @@ CoordMode, Mouse, Screen
 			WriteLog("sending acceptgr")
 			StringSend := "acceptgr"
 			Gosub, SenderText
+			Gosub, dounpause
 		}
 	}
 
