@@ -535,7 +535,7 @@ CoordMode, Mouse, Screen
 		WriteLog("running init: starting timers")
 		
 		SetTimer, imagereader, 40,1
-		SetTimer, logreader, 40,2
+		SetTimer, logreader, 15,2
 		SetTimer, idlewatcher, 30000
 		;SetTimer, pingchecker, 30000
 
