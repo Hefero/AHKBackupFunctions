@@ -406,7 +406,7 @@ CoordMode, Mouse, Screen
 			if (testconn > 5){
 				WriteLog("starting timers")
 				SetTimer, imagereader, 40 ,1
-				SetTimer, logreader, 15,2	
+				SetTimer, logreader, 1,2	
 				;SetTimer, pingconnection, 30000			
 				SetTimer, idlewatcher, 30000
 				
