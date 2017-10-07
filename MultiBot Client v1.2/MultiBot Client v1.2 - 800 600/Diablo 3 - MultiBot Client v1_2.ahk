@@ -601,7 +601,10 @@ CoordMode, Mouse, Screen
 				StringSend := "go to menu"
 				Gosub, SenderText
 				Sleep 5000
+				Gosub, dounpause
 				init()
+				Sleep 5000
+				Gosub, DoUnBlockInput
 			}
 	}
 
