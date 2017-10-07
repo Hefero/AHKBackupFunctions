@@ -1159,7 +1159,7 @@ CoordMode, Mouse, Screen
 		if (paused = 0){
 			paused := 1
 			SendInput, {F6 down}
-			Sleep 50
+			Sleep 100
 			SendInput, {F6 up}
 			WriteLog("F6 pausing gosub")
 		}
@@ -1171,7 +1171,7 @@ CoordMode, Mouse, Screen
 		if (paused = 1){
 			paused := 0
 			SendInput, {F6 down}
-			Sleep 50
+			Sleep 100
 			SendInput, {F6 up}
 			WriteLog("F6 pausing gosub")
 		}

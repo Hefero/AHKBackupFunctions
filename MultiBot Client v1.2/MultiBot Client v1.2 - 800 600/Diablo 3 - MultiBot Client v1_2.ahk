@@ -1036,11 +1036,9 @@ CoordMode, Mouse, Screen
 			Thread, NoTimers, True
 			if (paused = 0){
 				paused := 1
-				Sleep 50
 				SendInput, {F6 down}
-				Sleep 50
+				Sleep 100
 				SendInput, {F6 up}
-				Sleep 50
 				WriteLog("F6 dopause gosub")
 			}
 			Thread, NoTimers, False
@@ -1050,11 +1048,9 @@ CoordMode, Mouse, Screen
 			Thread, NoTimers, True
 			if (paused = 1){
 				paused := 0
-				Sleep 50
 				SendInput, {F6 down}
-				Sleep 50
+				Sleep 100
 				SendInput, {F6 up}
-				Sleep 50
 				WriteLog("F6 doUnpause gosub")
 			}
 			Thread, NoTimers, False
