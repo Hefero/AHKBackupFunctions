@@ -258,7 +258,7 @@ CoordMode, Mouse, Screen
 			Gosub, dopause
 			WriteLog("F6 pausing cancelbutton")
 			Sleep 1500
-			StringSend := "startros"
+			StringSend := "start"
 			Gosub, SenderText
 		}
 		
