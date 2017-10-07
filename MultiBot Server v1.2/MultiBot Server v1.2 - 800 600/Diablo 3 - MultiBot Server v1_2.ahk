@@ -356,15 +356,14 @@ CoordMode, Mouse, Screen
 		IfInString, controlText, startros
 		{
 			WriteLog("startros received routine")
-			Gosub, initial
-			Gosub, DoUnBlockInput
-			Sleep 1000
 			if (paused = 1){							
 				paused := 0
 				SendInput, {F6}	
 				WriteLog("startros received F6 unpausing")
-			}			
-			;Gosub, StartRos	
+			}
+			Sleep 1000
+			Gosub, initial
+			Gosub, DoUnBlockInput
 			WriteLog("startros received routine finished")
 		}
 		

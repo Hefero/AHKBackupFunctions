@@ -175,6 +175,7 @@ CoordMode, Mouse, Screen
 		IfInString, controlText, startros
 		{
 			WriteLog("Startros received")
+			Gosub, dounpause
 			Gosub, StartRos
 			init()		
 		}
@@ -256,7 +257,7 @@ CoordMode, Mouse, Screen
 			Gosub, dopause
 			WriteLog("F6 pausing cancelbutton")
 			Sleep 1500
-			StringSend := "start"
+			StringSend := "startros"
 			Gosub, SenderText
 		}
 		
