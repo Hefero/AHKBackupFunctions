@@ -752,7 +752,7 @@ CoordMode, Mouse, Screen
 			endedpool := 1
 			StringSend := "failure"	
 			Gosub, SenderText
-			Sleep 8000		
+			Sleep 9500		
 			StringSend := "imonmenu"
 			Gosub, SenderText
 			talkenter := 0
