@@ -29,7 +29,7 @@ CoordMode, Mouse, Screen
 	global leaveparty2 := [701, 567, 1216, 726, "\pngs\newleaveparty2.png", 410, 23 , 60,1] ; tbm funciona para inactivity
 	global inactivity := [713, 388 1220, 700, "\pngs\newinactivity2.png", 424,79 , "*50 *TransBlack",1]
 	global grcomplete := [722, 674, 872, 911, "\pngs\grcomplete.png" ,49 ,150,60,1]
-	;global risenecro := [1422, 971, 1664, 1027, "\pngs\risenecro.png", 171,18 , "*30 *TransBlack",3]
+	global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 	
 	
 	global teleport1 := [62 , 247,2]
@@ -429,7 +429,7 @@ CoordMode, Mouse, Screen
 						WriteLog("F6 unpausing")
 					}
 					WriteLog("necro have urushi routine finished")
-				
+					global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 			}
 		}	
 		
@@ -465,6 +465,13 @@ CoordMode, Mouse, Screen
 				Sleep 13500
 				SendInput, {t}
 		}
+		
+		IfInString, controltext, g_portal
+		{
+			global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+			WriteLog("g_portal received")
+		}
+		
 		Thread, NoTimers, False
 	}
 	
@@ -647,6 +654,7 @@ CoordMode, Mouse, Screen
 				WriteLog("running urshi... detected: send dh have urushi")
 				StringSend := "dh have urushi"
 				Gosub, SenderText
+				global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 			}	
 		}
 		
@@ -823,7 +831,12 @@ CoordMode, Mouse, Screen
 		GR := 0
 	}
 	
-	LogLock := 0
+	IfInString, chatstep, g_portal
+	{
+		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+		StringSend := "g_portal"
+		Gosub, SenderText
+	}
 	
 	return
 	
@@ -856,8 +869,7 @@ CoordMode, Mouse, Screen
 		}
 	return
 	
-	WriteLog(Text){   
-	   global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+	WriteLog(Text){ 
 	   FileAppend,
 	   (
 	   %A_YYYY%-%A_MM%-%A_DD%(%A_Hour%h%A_Min%m%A_Sec%sec) %Text% p: %paused%
@@ -869,7 +881,7 @@ CoordMode, Mouse, Screen
 	idlewatcher:
 	   CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 	   secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
-	   if (secondsElapsed > 800 and failed1 = 0){  
+	   if (secondsElapsed > 450 and failed1 = 0){  
 		failed1 := 1
 		failed2++
 		WriteLog("idlewatcher: f7 and send failure")
@@ -886,7 +898,7 @@ CoordMode, Mouse, Screen
 		Gosub, LeaveGame
 		Gosub, FocusDiablo
 	   }	   
-	   if (secondsElapsed > 800 and failed2 = 3 ){
+	   if (secondsElapsed > 450 and failed2 = 3 ){
 			WriteLog("idlewatcher com failed1: goingalone")
 			Gosub, LeaveGame
 			Gosub, GoAlone

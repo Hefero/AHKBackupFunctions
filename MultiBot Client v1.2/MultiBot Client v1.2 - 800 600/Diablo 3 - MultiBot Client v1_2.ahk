@@ -60,6 +60,8 @@ CoordMode, Mouse, Screen
 	global leaveparty2button := [860, 660,2]
 	global disconnectedbutton := [ 962 , 661,1 ]
 	
+	global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+	
 	ConvertClick(teleport1)
 	ConvertClick(teleport2)
 	ConvertClick(acceptclick)
@@ -150,6 +152,7 @@ CoordMode, Mouse, Screen
 					Gosub, dounpause
 					WriteLog("DH have urushi routine finished")
 					otherurshi := 1
+					global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 			}
 		}	
 		IfInString, controlText, start
@@ -297,23 +300,32 @@ CoordMode, Mouse, Screen
 		
 		
 	IfInString, controlText, foundpool
-			{	
-				WriteLog("going to pool")
-				Gosub, dopause
-				Sleep 500
-				c1 := teleport1[1]
-				c2 := teleport1[2]
-				WriteLog("clicking teleport")
-				Sleep 50					
-				Send {Click right %c1%, %c2%}
-				Sleep 100
-				c1 := teleport2[1]
-				c2 := teleport2[2]
-				Sleep 50
-				Send {click %c1% , %c2%}
-				Sleep 13500
-				SendInput, {t}
-		}
+	{	
+		WriteLog("going to pool")
+		Gosub, dopause
+		Sleep 500
+		c1 := teleport1[1]
+		c2 := teleport1[2]
+		WriteLog("clicking teleport")
+		Sleep 50					
+		Send {Click right %c1%, %c2%}
+		Sleep 100
+		c1 := teleport2[1]
+		c2 := teleport2[2]
+		Sleep 50
+		Send {click %c1% , %c2%}
+		Sleep 13500
+		SendInput, {t}
+	}
+	
+	
+	IfInString, controltext, g_portal
+	{
+		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+		WriteLog("g_portal received")
+	}
+	
+	
 		Thread, NoTimers, False
 	}
 	
@@ -573,6 +585,7 @@ CoordMode, Mouse, Screen
 					WriteLog("urshi to dissa detected: send necro have and did urushi")
 					StringSend := "necro have urushi and necro did urushi"
 					Gosub, SenderText
+					global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 			}
 		}
 
@@ -586,6 +599,13 @@ CoordMode, Mouse, Screen
 			Gosub, DoUnBlockInput
 			foundpool := 1
 		}
+	}
+	
+	IfInString, chatstep, g_portal
+	{
+		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+		StringSend := "g_portal"
+		Gosub, SenderText
 	}
 
 	IfInString, chatstep, Launching TP
@@ -742,7 +762,7 @@ CoordMode, Mouse, Screen
 	
 	WriteLog(Text){  
 	
-	   global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+	   
 	   FileAppend,
 	   (
 	   %A_YYYY%-%A_MM%-%A_DD%(%A_Hour%h%A_Min%m%A_Sec%sec) %Text% p: %paused%
@@ -754,12 +774,12 @@ CoordMode, Mouse, Screen
 	idlewatcher:
 		CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
-		if (secondsElapsed > 800 and failed1 = 0){		
+		if (secondsElapsed > 450 and failed1 = 0){		
 			chatstep := "blank"					
 			if(paused = 0){
 				paused := 1
 				SendInput, {F6}
-				WriteLog("next rift in diff F6")
+				WriteLog("pause f6 idlewatcher")
 			}
 			WinActivate, Diablo III
 			Gosub, FocusDiablo
@@ -775,7 +795,7 @@ CoordMode, Mouse, Screen
 			Gosub, LeaveGame
 			WinActivate, Diablo III
 		}
-		if (secondsElapsed > 800 and failed2 = 3){
+		if (secondsElapsed > 450 and failed2 = 3){
 			WriteLog("idlewatcher: com failed1 =1, goingalone")
 			Gosub, LeaveGame
 			Gosub, GoAlone
@@ -1052,6 +1072,7 @@ CoordMode, Mouse, Screen
 				Sleep 100
 				SendInput, {F6 up}
 				WriteLog("F6 doUnpause gosub")
+				global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 			}
 			Thread, NoTimers, False
 	return	
