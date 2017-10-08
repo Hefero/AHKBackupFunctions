@@ -157,21 +157,14 @@ CoordMode, Mouse, Screen
 		}	
 		IfInString, controlText, start
 		{
-			if (paused = 1){
-				paused := 0
-				SendInput, {F6}
-				WriteLog("Start received")
-			}
+			Gosub, dounpause
+			WriteLog("Start received")
 		}
 		
 		IfInString, controlText, iamready
 		{
 			otherurshi := 0
-			if (paused = 1){
-				paused := 0
-				SendInput, {F6}
-				WriteLog("F6 iamready: Starting")
-			}
+			Gosub, dounpause
 			WriteLog("iamready received")
 			LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		}
@@ -186,12 +179,9 @@ CoordMode, Mouse, Screen
 		}
 		
 		IfInString, controlText, pause
-		{
-			if (paused = 0){
-				paused := 1
-				SendInput, {F6}
-				WriteLog("F6 pause received")
-			}
+		{			
+			WriteLog("F6 pause received")
+			Gosub, dopause
 		}
 		
 		IfInString, controlText, dh did urshi
@@ -204,11 +194,7 @@ CoordMode, Mouse, Screen
 		IfInString, controlText, stop
 		{		
 			WriteLog("stop received")
-			if (paused = 0){	
-				paused := 1
-				SendInput, {F6}
-				WriteLog("F6 stop received: pausing")
-			}
+			Gosub, dopause
 		}
 		
 		IfInString, controlText, failure
@@ -269,34 +255,33 @@ CoordMode, Mouse, Screen
 		
 		IfInString, controlText, acceptgr
 		{
-					Sleep 500
-					c1 := acceptclick[1]
-					c2 := acceptclick[2]
-					Click %c1% , %c2%
-					WriteLog("acceptgr received")
-					entered := 1
-					exited := 0
-					wentback := 0
-					uiclosed := 0
-					uiopened := 0
-					didurshi := 0
-					bosskilled := 0
-					talkingui := 0
-					completed := 0	
-					gotourshi := 1
-					otherurshi := 0
-					failed1 := 0
-					failed2 := 0
-					accept := 0
-					receivedfailed := 0
-					idled := 0
-					idledtries := 0		
-					Sleep 6000
-					StringSend := "riftacceptbutton"
-					Gosub, SenderText					
-					paused := 0		
-					SendInput, {F6}
-					WriteLog("F6 start just sent, now unpausing")
+			Sleep 500
+			c1 := acceptclick[1]
+			c2 := acceptclick[2]
+			Click %c1% , %c2%
+			WriteLog("acceptgr received")
+			entered := 1
+			exited := 0
+			wentback := 0
+			uiclosed := 0
+			uiopened := 0
+			didurshi := 0
+			bosskilled := 0
+			talkingui := 0
+			completed := 0	
+			gotourshi := 1
+			otherurshi := 0
+			failed1 := 0
+			failed2 := 0
+			accept := 0
+			receivedfailed := 0
+			idled := 0
+			idledtries := 0		
+			Sleep 6000
+			StringSend := "riftacceptbutton"
+			Gosub, SenderText					
+			Gosub, dounpause
+			WriteLog("F6 start just sent, now unpausing")
 		}
 		
 		
@@ -343,11 +328,7 @@ CoordMode, Mouse, Screen
 	;				failed2 :=1 ;nao procurar pelo menu enabled normal
 	;				failed1 :=1 ;nao procurar por disconnected
 	;				WriteLog("PING returned 0 (disconnection), paused: " paused)
-	;				if (paused = 0){
-	;					paused := 1
-	;					SendInput, {F6}					
-	;					WriteLog("pausing")
-	;				}
+	;				Gosub, dopause
 	;				WriteLog("logout attempt")
 	;				Gosub, LeaveGame
 	;				Gosub, GoAlone
@@ -685,11 +666,7 @@ CoordMode, Mouse, Screen
 			GR := 1
 			idled := 0
 			accept := 1
-			if (paused = 0){
-				paused := 1
-				SendInput, {F6}
-				WriteLog("F6 pausing riftacceptbutton")
-			}
+			Gosub, dopause
 			Sleep 1500
 			WriteLog("send acceptgr (do cancel)")
 			StringSend := "acceptgr"
@@ -918,11 +895,8 @@ CoordMode, Mouse, Screen
 				Sleep 200
 			 }
 		  }
-	   if (paused = 1){
-		  paused := 0
-		  SendInput, {F6}
-		  WriteLog("F6 Idled too many detected: unpausing alone")
-	   }   
+	   Gosub, dounpause
+		 WriteLog("F6 Idled too many detected: unpausing alone")
 	   WriteLog("Exiting after resume alone")
 	   Sleep 1000
 	   idled := 0
@@ -1059,6 +1033,7 @@ CoordMode, Mouse, Screen
 	}
 	
 	dopause:
+			Thread, Interrupt, -1
 			Thread, NoTimers, True
 			if (paused = 0){
 				paused := 1
@@ -1071,7 +1046,8 @@ CoordMode, Mouse, Screen
 	return
 	
 	dounpause:
-			Thread, NoTimers, True
+			Thread, Interrupt, -1
+			Thread, NoTimers, True			
 			if (paused = 1){
 				paused := 0
 				SendInput, {F6 down}

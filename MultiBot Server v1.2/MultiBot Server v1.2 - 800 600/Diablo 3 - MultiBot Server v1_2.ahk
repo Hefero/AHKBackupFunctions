@@ -232,22 +232,9 @@ CoordMode, Mouse, Screen
 	   	IfInString, controlText, pause
 		{		
 			WriteLog("pause received")
-			if (paused = 0){	
-				paused := 1
-				SendInput, {F6}	
-				WriteLog("F6 pause received: pausing")
-			}
+			Gosub, dopause
 		}
-		IfInString, controlText, cancelgrift
-		{		
-			WriteLog("received message cancelgrift")			
-			if (paused = 0){
-				paused :=0
-				SendInput, {F6}
-				WriteLog("F6 cancelgrift:pausing")
-			}			
-			Gosub, CancelGRift
-		}
+		
 		
 		IfInString, controlText, beginsequence
 		{	
@@ -295,13 +282,8 @@ CoordMode, Mouse, Screen
 				exited := 0
 				receivedfailed := 0	
 				paused := 0				
-				Gosub, FocusDiablo				
-				WriteLog("riftacceptbutton received: send cancelgrift")				
-				if (paused = 1){
-					paused :=0
-					SendInput, {F6}
-					WriteLog("F6 riftacceptbutton received: unpausing")
-				}
+				Gosub, FocusDiablo								
+				Gosub, dounpause
 			}
 			else{
 				entered := 0
@@ -327,11 +309,7 @@ CoordMode, Mouse, Screen
 		IfInString, controlText, start
 		{			
 			WriteLog("start received")
-			if (paused = 1){	
-				paused := 0
-				SendInput, {F6}	
-				WriteLog("F6 start received:starting")
-			}
+			Gosub, dounpause
 		}
 		
 		
@@ -356,11 +334,7 @@ CoordMode, Mouse, Screen
 		IfInString, controlText, startros
 		{
 			WriteLog("startros received routine")
-			if (paused = 1){							
-				paused := 0
-				SendInput, {F6}	
-				WriteLog("startros received F6 unpausing")
-			}
+			Gosub, dounpause
 			Sleep 1000
 			Gosub, initial
 			Gosub, DoUnBlockInput
@@ -381,11 +355,8 @@ CoordMode, Mouse, Screen
 		
 		IfInString, controlText, stop
 		{			
-			if (paused = 0){
-				paused := 1
-				SendInput, {F6}	
-				WriteLog("F6 stop received")
-			}
+			Gosub, dopause
+			WriteLog("F6 stop received")
 		}
 		
 		IfInString, controlText, necro did urushi
@@ -400,11 +371,7 @@ CoordMode, Mouse, Screen
 				{	
 					WriteLog("necro have urushi received")
 					gotourshi := 0
-					if (paused = 0){							
-						paused := 1
-						SendInput, {F6}	
-						WriteLog("F6 pausing")
-					}		
+					Gosub, dopause	
 					WriteLog("clicking teleport")
 					Sleep 500
 					c1 := teleport1[1]
@@ -423,11 +390,8 @@ CoordMode, Mouse, Screen
 					Sleep 50
 					SendInput, {Click up}
 					Sleep 5000	
-					if (paused = 1){	
-						paused := 0
-						SendInput, {F6}	
-						WriteLog("F6 unpausing")
-					}
+					WriteLog("unpausing")
+					Gosub, dounpause
 					WriteLog("necro have urushi routine finished")
 					global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 			}
@@ -489,11 +453,7 @@ CoordMode, Mouse, Screen
 	;			 failed2 :=1 ;nao procurar pelo menu enabled normal
 	;			 failed1 := 1 ;nao procurar por disconnection
 	;			 WriteLog("TCP Disconnect ping detected paused: " paused)
-	;			 if (paused = 0){
-	;				paused := 1
-	;				SendInput, {F6}               
-	;				WriteLog("pausing")
-	;			 }
+	;			 Gosub, dopause
 	;			 WriteLog("logout attempt")
 	;			 Gosub, FocusDiablo
 	;			 Gosub, LeaveGame
@@ -693,11 +653,7 @@ CoordMode, Mouse, Screen
 	;	if (pausestart = 1 and paused = 0){
 	;		LogLock := 1	
 	;		pausestart := 0					
-	;		if (paused = 0){			
-	;			paused := 1
-	;			SendInput, {F6}	
-	;			WriteLog("F6 from start a loop")
-	;		}	
+	;		Gosub, dopause	
 	;		WriteLog("star a loop detected: send iamready")	
 	;		Sleep 2000
 	;		StringSend := "iamready"
@@ -713,11 +669,7 @@ CoordMode, Mouse, Screen
 		if (pausestart = 1 and paused = 0 and GR = 0){
 			LogLock := 1	
 			pausestart := 0					
-			if (paused = 0){			
-				paused := 1
-				SendInput, {F6}	
-				WriteLog("F6 from vendorloop")
-			}	
+			Gosub, dopause
 			Sleep 1500
 			WriteLog("vendor loop done detected: send iamready")
 			StringSend := "iamready"
@@ -928,11 +880,7 @@ CoordMode, Mouse, Screen
 				exited := 1
 				doleave := 0
 				WriteLog("LEave game found: clicking leave game and blocking input for 15 seconds")
-				if (paused = 1){			
-					paused := 0
-					SendInput, {F6}	
-					WriteLog("F6 unpausing: leave game detect imagereader and waited")
-				}					
+				Gosub, dounpause				
 				Sleep 4500
 				Gosub, DoUnBlockInput
 				WriteLog("imagereader leave game")
@@ -972,11 +920,7 @@ CoordMode, Mouse, Screen
 						c1 := cancelbutton[1]
 						c2 := cancelbutton[2]
 						Click %c1% , %c2%		
-						if (paused = 0){
-							paused := 1
-							SendInput, {F6}
-							WriteLog("F6 pausing cancelbutton")
-						}
+						Gosub, dopause
 						Break
 					}
 			}
@@ -1026,11 +970,7 @@ CoordMode, Mouse, Screen
 				Sleep 200
 			 }
 		  }
-	   if (paused = 1){
-		  paused := 0
-		  SendInput, {F6}
-		  WriteLog("F6 Idled too many detected: unpausing alone")
-	   }   
+	   Gosub, dounpause 
 	   WriteLog("Exiting after resume alone")
 	   Sleep 1000
 	   idled := 0
@@ -1163,6 +1103,7 @@ CoordMode, Mouse, Screen
 	}
 	
 	dopause:
+	Thread, Interrupt, -1
 	Thread, NoTimers, True
 		if (paused = 0){
 			paused := 1
@@ -1175,6 +1116,7 @@ CoordMode, Mouse, Screen
 	return
 	
 	dounpause:
+	Thread, Interrupt, -1
 	Thread, NoTimers, True
 		if (paused = 1){
 			paused := 0
