@@ -441,7 +441,7 @@ CoordMode, Mouse, Screen
 			c1 := cancelgriftbutton[1]
 			c2 := cancelgriftbutton[2]
 			Click %c1% , %c2%    
-			Sleep 3000
+			Sleep 1500
 			WriteLog("accept found: clicked cancel")
 			StringSend := "cancelgrift"
 			Gosub, SenderText
@@ -463,7 +463,7 @@ CoordMode, Mouse, Screen
 				c2 := teleport2[2]
 				Sleep 50
 				Send {click %c1% , %c2%}
-				Sleep 13500
+				Sleep 8500
 				SendInput, {t}
 		}
 		
@@ -718,7 +718,7 @@ CoordMode, Mouse, Screen
 				SendInput, {F6}	
 				WriteLog("F6 from vendorloop")
 			}	
-			Sleep 3000
+			Sleep 1500
 			WriteLog("vendor loop done detected: send iamready")
 			StringSend := "iamready"
 			Gosub, SenderText
@@ -731,7 +731,7 @@ CoordMode, Mouse, Screen
 			Gosub, DoBlockInput
 			StringSend := "foundpool"
 			Gosub, SenderText
-			Sleep 10000			
+			Sleep 7000			
 			Gosub, DoUnBlockInput
 			foundpool := 1
 		}
@@ -810,6 +810,7 @@ CoordMode, Mouse, Screen
 			exited := 0
 			interactUi := 1
 			WriteLog("sending acceptgr")
+			Sleep 500
 			StringSend := "acceptgr"
 			Gosub, SenderText
 			Gosub, dounpause
@@ -873,7 +874,7 @@ CoordMode, Mouse, Screen
 		Thread, interrupt, -1
 	   CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 	   secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
-	   if (secondsElapsed > 200 and failed1 = 0){  
+	   if (secondsElapsed > 300 and failed1 = 0){  
 		failed1 := 1
 		failed2++
 		WriteLog("idlewatcher: f7 and send failure")
@@ -890,7 +891,7 @@ CoordMode, Mouse, Screen
 		Gosub, LeaveGame
 		Gosub, FocusDiablo
 	   }	   
-	   if (secondsElapsed > 200 and failed2 = 3 ){
+	   if (secondsElapsed > 300 and failed2 = 3 ){
 			WriteLog("idlewatcher com failed1: goingalone")
 			Gosub, LeaveGame
 			Gosub, GoAlone

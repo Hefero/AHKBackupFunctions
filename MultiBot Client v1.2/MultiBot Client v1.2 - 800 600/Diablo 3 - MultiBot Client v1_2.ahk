@@ -315,7 +315,7 @@ CoordMode, Mouse, Screen
 		c2 := teleport2[2]
 		Sleep 50
 		Send {click %c1% , %c2%}
-		Sleep 13500
+		Sleep 8500
 		SendInput, {t}
 	}
 	
@@ -595,7 +595,7 @@ CoordMode, Mouse, Screen
 			Gosub, DoBlockInput
 			StringSend := "foundpool"
 			Gosub, SenderText
-			Sleep 10000			
+			Sleep 7000			
 			Gosub, DoUnBlockInput
 			foundpool := 1
 		}
@@ -690,7 +690,7 @@ CoordMode, Mouse, Screen
 				SendInput, {F6}
 				WriteLog("F6 pausing riftacceptbutton")
 			}
-			Sleep 3000
+			Sleep 1500
 			WriteLog("send acceptgr (do cancel)")
 			StringSend := "acceptgr"
 			Gosub, SenderText			
@@ -714,14 +714,14 @@ CoordMode, Mouse, Screen
 			
 			otherurshi := 0
 			if(beginsequence = 0){
-				Sleep 3000
+				Sleep 1500
 				StringSend :=  "start"
 				Gosub, SenderText			
 				WriteLog("sent start from vendorloop done")
 			}
 		}	
 		if(beginsequence = 1){
-			Sleep 3000
+			Sleep 1500
 			beginsequence := 0
 			WriteLog("send beginsequence")
 			StringSend := "beginsequence"			
