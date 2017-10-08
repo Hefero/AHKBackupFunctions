@@ -1057,6 +1057,7 @@ CoordMode, Mouse, Screen
 
 	SenderText:
 		Thread, NoTimers, True
+		Thread, Interrupt, -1
 	   WriteLog("SendText: " StringSend)
 	   sent := myClient.sendText(StringSend)
 	   if (sent > 0)
@@ -1078,6 +1079,7 @@ CoordMode, Mouse, Screen
 		   WriteLog("retry send FAILED: " StringSend " retries: " a_index "status: " sent)
 		 }
 		}
+		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		Thread, NoTimers, False
    return
    

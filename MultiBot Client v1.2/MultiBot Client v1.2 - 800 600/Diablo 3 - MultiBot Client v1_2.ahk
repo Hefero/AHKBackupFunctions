@@ -173,6 +173,7 @@ CoordMode, Mouse, Screen
 				WriteLog("F6 iamready: Starting")
 			}
 			WriteLog("iamready received")
+			LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		}
 		
 	
@@ -524,6 +525,7 @@ CoordMode, Mouse, Screen
 		global idledtries := 0
 		global blockedinput := 0
 		global foundpool := 0
+		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 	}
 	
 	str_getTail(_Str , _LineNum = 1)
@@ -689,7 +691,7 @@ CoordMode, Mouse, Screen
 			}
 			WriteLog("send acceptgr (do cancel)")
 			StringSend := "acceptgr"
-			Gosub, SenderText
+			Gosub, SenderText			
 		}
 	}
 	
@@ -949,6 +951,8 @@ CoordMode, Mouse, Screen
 	return
 	
 	SenderText:
+		Thread, NoTimers, True
+		Thread, Interrupt, -1
 	   WriteLog("SendText: " StringSend)
 		sent := myClient.sendText(StringSend)
 	   if (sent > 0)
@@ -971,6 +975,8 @@ CoordMode, Mouse, Screen
 			 WriteLog("retry send FAILED: " StringSend " retries: " a_index "status: " sent)
 		  }
 	    }
+		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
+		Thread, NoTimers, False
 	   return
 	 
 	 DoBlockInput:
