@@ -875,21 +875,22 @@ CoordMode, Mouse, Screen
 	   CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 	   secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
 	   if (secondsElapsed > 300 and failed1 = 0){  
-		failed1 := 1
-		failed2++
-		WriteLog("idlewatcher: f7 and send failure")
-		chatstep := "blank"
-		if(paused =0){
-			paused := 1
-			SendInput, {F6}
-			WriteLog("next rift in different: f6 pausing")
-		}  
-		WinActivate, Diablo III		  
-		Gosub, FocusDiablo
-		StringSend := "failure by idlewatcher"
-		Gosub, SenderText
-		Gosub, LeaveGame
-		Gosub, FocusDiablo
+			gosub, DoBlockInput
+			LogLock := 1
+			SendInput, {F4 down}
+			Sleep 100
+			SendInput, {F4 up}
+			Sleep 1000
+			WriteLog("idle watcher: f6 logout")
+			;BlockInput, on
+			Gosub, dopause
+			failed1 := 1
+			failed2++
+			chatstep := "blank"
+			StringSend := "failure"	
+			Gosub, SenderText
+			WriteLog("logout attempt")
+			Gosub, LeaveGame
 	   }	   
 	   if (secondsElapsed > 300 and failed2 = 3 ){
 			WriteLog("idlewatcher com failed1: goingalone")

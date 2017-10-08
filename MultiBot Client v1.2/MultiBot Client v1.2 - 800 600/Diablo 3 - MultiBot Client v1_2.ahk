@@ -778,25 +778,24 @@ CoordMode, Mouse, Screen
 		CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
 		if (secondsElapsed > 200 and failed1 = 0){		
-			chatstep := "blank"					
-			if(paused = 0){
-				paused := 1
-				SendInput, {F6}
-				WriteLog("pause f6 idlewatcher")
-			}
-			WinActivate, Diablo III
-			Gosub, FocusDiablo
-			WriteLog("idle watcher detected disc: f6")
-			chatstep := "blank"
+			gosub, DoBlockInput
+			LogLock := 1
+			chatstep := "blank"				
+			SendInput, {F4 down}
+ 			Sleep 100
+ 			SendInput, {F4 up}
+ 			Sleep 1000
+			;BlockInput, on	
+			Gosub, dopause
+			WriteLog("idlewatcher: f6 logout")			
 			failed1 := 1
 			failed2++
+			WriteLog("send go to menu")
 			StringSend := "go to menu"
 			Gosub, SenderText
-			WriteLog("send go to menu")
-			Gosub, FocusDiablo
 			WriteLog("logout attempt")
 			Gosub, LeaveGame
-			WinActivate, Diablo III
+			Gosub, FocusDiablo
 		}
 		if (secondsElapsed > 200 and failed2 = 3){
 			WriteLog("idlewatcher: com failed1 =1, goingalone")
