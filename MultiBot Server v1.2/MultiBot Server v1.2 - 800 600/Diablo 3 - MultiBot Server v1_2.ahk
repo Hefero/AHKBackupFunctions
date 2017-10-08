@@ -500,17 +500,6 @@ CoordMode, Mouse, Screen
 	;			}
 	;		}
 	;	}
-	return
-	
-	
-	\::	
-		
-			SetTimer, imagereader, off
-			SetTimer, logreader, off
-			SetTimer, idlewatcher, off
-			SetTimer, pingchecker, off
-			WriteLog("timers off key pressed")
-		
 	return	
 	
 	
@@ -544,7 +533,7 @@ CoordMode, Mouse, Screen
 		
 		SetTimer, imagereader, 40,1
 		SetTimer, logreader, 1,2
-		SetTimer, idlewatcher, 30000
+		SetTimer, idlewatcher, 30000, 3
 		;SetTimer, pingchecker, 30000
 
 	return
@@ -879,6 +868,7 @@ CoordMode, Mouse, Screen
 	}
 	
 	idlewatcher:
+		Thread, interrupt, -1
 	   CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 	   secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
 	   if (secondsElapsed > 450 and failed1 = 0){  

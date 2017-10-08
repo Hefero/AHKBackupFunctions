@@ -420,7 +420,7 @@ CoordMode, Mouse, Screen
 				SetTimer, imagereader, 40 ,1
 				SetTimer, logreader, 1,2	
 				;SetTimer, pingconnection, 30000			
-				SetTimer, idlewatcher, 30000
+				SetTimer, idlewatcher, 30000, 3
 				
 				GuiControl, Text, logtext,%logtextapp%`nSucessfully Connected,`nGoing into background...
 				Sleep 4000
@@ -524,8 +524,6 @@ CoordMode, Mouse, Screen
 		global idledtries := 0
 		global blockedinput := 0
 		global foundpool := 0
-		SetTimer, imagereader, 1 ,1
-		SetTimer, logreader, 1,2
 	}
 	
 	str_getTail(_Str , _LineNum = 1)
@@ -772,6 +770,7 @@ CoordMode, Mouse, Screen
 	}
 	
 	idlewatcher:
+		Thread, interrupt, -1
 		CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
 		if (secondsElapsed > 450 and failed1 = 0){		
