@@ -1107,3 +1107,6 @@ CoordMode, Mouse, Screen
 		gosub, #F9
 	return
 
+	~F6::
+		paused := !paused
+	return

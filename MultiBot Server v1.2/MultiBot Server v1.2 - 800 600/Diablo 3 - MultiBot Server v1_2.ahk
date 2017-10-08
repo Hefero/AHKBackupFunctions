@@ -1189,3 +1189,7 @@ CoordMode, Mouse, Screen
 		}
 	Thread, NoTimers, False
 	return
+	
+	~F6::
+		paused := !paused
+	return
