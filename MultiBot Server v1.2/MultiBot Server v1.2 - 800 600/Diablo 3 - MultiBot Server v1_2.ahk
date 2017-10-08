@@ -825,6 +825,7 @@ CoordMode, Mouse, Screen
 		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		StringSend := "g_portal"
 		Gosub, SenderText
+		Sleep 5000
 	}
 	
 	return
@@ -871,7 +872,7 @@ CoordMode, Mouse, Screen
 		Thread, interrupt, -1
 	   CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 	   secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
-	   if (secondsElapsed > 450 and failed1 = 0){  
+	   if (secondsElapsed > 200 and failed1 = 0){  
 		failed1 := 1
 		failed2++
 		WriteLog("idlewatcher: f7 and send failure")
@@ -888,7 +889,7 @@ CoordMode, Mouse, Screen
 		Gosub, LeaveGame
 		Gosub, FocusDiablo
 	   }	   
-	   if (secondsElapsed > 450 and failed2 = 3 ){
+	   if (secondsElapsed > 200 and failed2 = 3 ){
 			WriteLog("idlewatcher com failed1: goingalone")
 			Gosub, LeaveGame
 			Gosub, GoAlone

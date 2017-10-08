@@ -606,6 +606,7 @@ CoordMode, Mouse, Screen
 		global LastLogWrite := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		StringSend := "g_portal"
 		Gosub, SenderText
+		Sleep 5000
 	}
 
 	IfInString, chatstep, Launching TP
@@ -775,7 +776,7 @@ CoordMode, Mouse, Screen
 		Thread, interrupt, -1
 		CurrenTime := A_YYYY A_MM A_DD A_Hour A_Min A_Sec
 		secondsElapsed := Time(CurrenTime,LastLogWrite,"s")
-		if (secondsElapsed > 450 and failed1 = 0){		
+		if (secondsElapsed > 200 and failed1 = 0){		
 			chatstep := "blank"					
 			if(paused = 0){
 				paused := 1
@@ -796,7 +797,7 @@ CoordMode, Mouse, Screen
 			Gosub, LeaveGame
 			WinActivate, Diablo III
 		}
-		if (secondsElapsed > 450 and failed2 = 3){
+		if (secondsElapsed > 200 and failed2 = 3){
 			WriteLog("idlewatcher: com failed1 =1, goingalone")
 			Gosub, LeaveGame
 			Gosub, GoAlone
