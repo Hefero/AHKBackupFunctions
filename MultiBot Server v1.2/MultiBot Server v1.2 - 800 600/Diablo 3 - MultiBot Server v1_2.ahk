@@ -441,6 +441,7 @@ CoordMode, Mouse, Screen
 			c1 := cancelgriftbutton[1]
 			c2 := cancelgriftbutton[2]
 			Click %c1% , %c2%    
+			Sleep 3000
 			WriteLog("accept found: clicked cancel")
 			StringSend := "cancelgrift"
 			Gosub, SenderText

@@ -690,6 +690,7 @@ CoordMode, Mouse, Screen
 				SendInput, {F6}
 				WriteLog("F6 pausing riftacceptbutton")
 			}
+			Sleep 3000
 			WriteLog("send acceptgr (do cancel)")
 			StringSend := "acceptgr"
 			Gosub, SenderText			
