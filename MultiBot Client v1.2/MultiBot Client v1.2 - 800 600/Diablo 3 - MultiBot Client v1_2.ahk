@@ -519,7 +519,7 @@ CoordMode, Mouse, Screen
 	
 	logreader:	
 		Thread, interrupt, 0		
-		global chatstep := Tail(20,logpath)		
+		global chatstep := Tail(15,logpath)		
 		
 		IfInString, chatstep, Running urshi...
 		{	

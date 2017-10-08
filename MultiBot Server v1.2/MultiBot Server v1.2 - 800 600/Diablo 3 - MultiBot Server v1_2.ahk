@@ -573,7 +573,7 @@ CoordMode, Mouse, Screen
 		;FileRead, file, C:\Users\slayn\Documents\RoS-BoT\Logs\logs.txt
 		;global chatstep := str_getTail(file, 25)
 		
-		global chatstep := Tail(20,logpath)		
+		global chatstep := Tail(15,logpath)		
 		
 		
 		IfInString, chatstep, InteractWithUiAndWaitFor 
